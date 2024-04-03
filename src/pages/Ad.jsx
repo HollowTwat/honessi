@@ -46,7 +46,7 @@ const Ad = () => {
                         cursor: 'pointer',
                         height: 80,
                     }}
-                    onClick={() => window.open('https://t.me/ki_prog', '_blank')}
+                    onClick={() => window.open('https://www.youtube.com/watch?v=rlDCBG2Rd-4', '_blank')}
                 >
                     <span style={{fontSize: 18,}}>Заказать приложение</span>
                     <br/>
