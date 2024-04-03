@@ -19,8 +19,8 @@ const useServer = () => {
                 },
                 body: JSON.stringify({
                     category: type,
-                    user_name: user ?.username,
-                    user_id: user ?.id.toString(),
+                    user_name: user?.username,
+                    user_id: user?.id.toString(),
                     order: order
                 })
             });
