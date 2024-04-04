@@ -8,17 +8,16 @@ const useServer = () => {
 
     const sendNewOrder = async (type, user, order) => {
 
-        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest';
+        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=aaaa';
         try {
             const response = await fetch(url, {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                },
-                body: JSON.stringify({
-                    input: type
+                // method: "POST",
+                // mode: "cors",
+                // headers: {
+                //     "Content-Type": "application/json",
+                //     "Accept": "application/json",
+                // },
+                // body: JSON.stringify({
                     // category: type,
                     // user_name: user?.username,
                     // user_id: user?.id.toString(),
