@@ -8,7 +8,7 @@ const useServer = () => {
 
     const sendNewOrder = async (type, user, order) => {
 
-        const url = 'https://honestsign.ru/new_order';
+        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest';
         try {
             const response = await fetch(url, {
                 method: "POST",
