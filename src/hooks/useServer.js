@@ -11,8 +11,8 @@ const useServer = () => {
         const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=aaaa';
         try {
             const response = await fetch(url, {
-                // method: "POST",
-                // mode: "cors",
+                method: "POST",
+                mode: "cors",
                 // headers: {
                 //     "Content-Type": "application/json",
                 //     "Accept": "application/json",
