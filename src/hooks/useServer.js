@@ -8,7 +8,7 @@ const useServer = () => {
 
     const sendNewOrder = async (type, user, order) => {
 
-        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=aaaa';
+        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest';
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -17,13 +17,13 @@ const useServer = () => {
                 //     "Content-Type": "application/json",
                 //     "Accept": "application/json",
                 // },
-                // body: JSON.stringify({
-                //     input: "rng_input"
+                body: JSON.stringify({
+                    input: "rng_input"
                     // category: type,
                     // user_name: user?.username,
                     // user_id: user?.id.toString(),
                     // order: order
-                // })
+                })
             });
 
             const result = await response.json();
