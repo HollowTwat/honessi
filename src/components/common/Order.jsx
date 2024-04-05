@@ -56,7 +56,7 @@ const Order = ({type}) => {
                 setIsDarkened(!isDarkened);
                 tg.MainButton.showProgress(false);
 
-                const {order_id} = await sendNewOrder(type, user, positions);
+                const {order_id} = await sendNewOrder(type, user, data.positions);
 
                 tg.MainButton.hideProgress();
                 if (order_id !== '') {
