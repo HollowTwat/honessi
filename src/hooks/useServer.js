@@ -7,7 +7,7 @@ const useServer = () => {
     const [error, setError] = useState(null);
 
     const sendNewOrder = async (type, user, order) => {
-        orderstring = JSON.stringify(order)
+        orderstring = JSON.stringify(order);
 
         const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=type__'+type+'username__'+user?.username+'userid__'+user?.id.toString()+'_____'+orderstring;
         try {
