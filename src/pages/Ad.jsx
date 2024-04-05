@@ -1,5 +1,5 @@
 import React from 'react';
-import chz_logo from '../../src/images/chz_logo.jpg';
+import Snatch_logo from '../../src/images/Snatch_logo.jpg';
 import {mainBlue} from "../styles/colors";
 import {useTelegram} from "../hooks/useTelegram";
 import {useNavigate} from "react-router-dom";
@@ -19,7 +19,7 @@ const Ad = () => {
     return (
         <div>
             <div style={{width:200, height:200, marginLeft: "auto", marginTop: 30, marginRight: "auto", display: "block"}}>
-                <img src={chz_logo} alt={'logo'} style={{borderRadius: 9999999}}/>
+                <img src={Snatch_logo} alt={'logo'} style={{borderRadius: 9999999}}/>
             </div>
             <br/>
             <div style={{textAlign: "center", fontWeight: 900, fontSize: 20}}>ЧЕСТНЫЙ ЗНАК | Заказ кодов</div>
