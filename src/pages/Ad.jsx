@@ -22,8 +22,7 @@ const Ad = () => {
                 <img src={Snatch_logo} alt={'logo'} style={{borderRadius: 9999999}}/>
             </div>
             <br/>
-            <div style={{textAlign: "center", fontWeight: 900, fontSize: 20}}>ХУДОЖЕСТВЕННЫЙ ФИЛЬМ | Спиздили
-        </div>
+            <div style={{textAlign: "center", fontWeight: 900, fontSize: 20}}>  S.N.A.T.C.H. </div>
             <div style={{padding: 25, fontWeight: 500, textIndent: 15, fontSize: 18, textAlign: "justify"}}>
                 <p>
                     Наше приложение может обрабатывать сотни тысяч кодов маркировки каждый день. Делая жизнь продавцов
