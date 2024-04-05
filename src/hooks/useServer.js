@@ -8,7 +8,7 @@ const useServer = () => {
 
     const sendNewOrder = async (type, user, order) => {
 
-        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest';
+        const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=user?.id.toString()';
         try {
             const response = await fetch(url, {
                 method: "POST",
