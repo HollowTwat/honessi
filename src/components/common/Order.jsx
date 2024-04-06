@@ -74,9 +74,19 @@ const Order = ({type}) => {
                 }
             }
             if (answerId === '3') {
-                tg.showPopup({
-                    title: 'debug',
-                    message: JSON.stringify(data)
+                send('https://berryaudit.ru/api/TelegramHonessy/IWanaParce'){
+                method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({
+                    category: type,
+                    user_name: user?.username,
+                    user_id: user?.id.toString(),
+                    order: order
+                })
                 })
             }
         })
