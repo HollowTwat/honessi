@@ -55,44 +55,8 @@ const Order = ({type}) => {
                 // }),
                 buttons: [
                     {id: 1, type: 'default', text: 'Да'},
-                                        {id: 2, type: 'default', text: 'Нет'},
-                    {id: 3, type: 'default', text: 'debug'}
-                ]
-        }, async (answerId) => {
-            if (answerId === '1') {
-                setIsDarkened(!isDarkened);
-                tg.MainButton.showProgress(false);
-
-                const {order_id} = await sendNewOrder(type, user, data);
-
-                tg.MainButton.hideProgress();
-                if (order_id !== '') {
-                    localStorage.removeItem(localStorageNames[type]);
-                    navigate('/orderComplete', {state: {order_id: order_id}});
-                } else {
-                    navigate('/orderError');
-                }
-            }
-            if (answerId === '3') {
-                XMLHttpRequest.send('https://berryaudit.ru/api/TelegramHonessy/IWanaParce')
-                {
-                method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                },
-                body: JSON.stringify({
-                    category: type,
-                    user_name: user?.username,
-                    user_id: user?.id.toString(),
-                    order: order
-                })
-                }
-                )
-            }
-        })
-        //             {id: 2, type: 'default', text: 'Нет'}
+        //             {id: 2, type: 'default', text: 'Нет'},
+        //             {id: 3, type: 'default', text: 'debug'}
         //         ]
         // }, async (answerId) => {
         //     if (answerId === '1') {
@@ -109,7 +73,28 @@ const Order = ({type}) => {
         //             navigate('/orderError');
         //         }
         //     }
+        //     if (answerId === '3') {
+
+        //     }
         // })
+                    {id: 2, type: 'default', text: 'Нет'}
+                ]
+        }, async (answerId) => {
+            if (answerId === '1') {
+                setIsDarkened(!isDarkened);
+                tg.MainButton.showProgress(false);
+
+                const {order_id} = await sendNewOrder(type, user, data);
+
+                tg.MainButton.hideProgress();
+                if (order_id !== '') {
+                    localStorage.removeItem(localStorageNames[type]);
+                    navigate('/orderComplete', {state: {order_id: order_id}});
+                } else {
+                    navigate('/orderError');
+                }
+            }
+        })
     }, [data, isDarkened, navigate, sendNewOrder, tg, type, user])
 
     useEffect(() => {
