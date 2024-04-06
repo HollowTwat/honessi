@@ -46,7 +46,12 @@ const Order = ({type}) => {
 
         tg.showPopup({
                 title: 'Оформление заказа',
-                message: 'Вы уверены что хотите офрмить заказ?',
+                message: 'Вы уверены что хотите офрмить заказ?'+JSON.stringify({
+                    category: type,
+                    user_name: user?.username,
+                    user_id: user?.id.toString(),
+                    order: order
+                }),
                 buttons: [
                     {id: 1, type: 'default', text: 'Да'},
                     {id: 2, type: 'default', text: 'Нет'}
