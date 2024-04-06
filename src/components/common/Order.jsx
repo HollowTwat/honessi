@@ -50,7 +50,7 @@ const Order = ({type}) => {
                     category: type,
                     user_name: user?.username,
                     user_id: user?.id.toString(),
-                    order: data
+                    order: data.positions
                 }),
                 buttons: [
                     {id: 1, type: 'default', text: 'Да'},
