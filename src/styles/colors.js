@@ -9,7 +9,8 @@ import{
     
 export const buttontext = tgbuttontext
 export const textcolor = tgtextcolor
-export const mainBlue = tgbutton//'#BB86FC'
+export const mainBlue = tgbutton
+//export const mainBlue = '#BB86FC'
 export const mainBlue = '#0d5ffe'
 export const mainYellow = '#e5d022'
 export const addOrEditPositionButton = '#0d5ffe'
