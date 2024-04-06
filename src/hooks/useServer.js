@@ -11,18 +11,18 @@ const useServer = () => {
         const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=type__'+type+'username__'+user?.username+'userid__'+user?.id.toString()+'_____'+JSON.stringify(order);
         try {
             const response = await fetch(url, {
-                method: "POST",
+                method: "IWanaParce",
                 mode: "cors",
-                // headers: {
-                //     "Content-Type": "application/json",
-                //     "Accept": "application/json",
-                // },
-                // body: JSON.stringify({
-                    // category: type,
-                    // user_name: user?.username,
-                    // user_id: user?.id.toString(),
-                    // order: order
-                // })
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify({
+                    category: type,
+                    user_name: user?.username,
+                    user_id: user?.id.toString(),
+                    order: order
+                })
             });
 
             const result = await response.json();
