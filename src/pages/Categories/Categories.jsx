@@ -85,8 +85,11 @@ const Categories = () => {
                 <Button onClick={() => {onClickCategory('orderPerfume','/perfume')}}>Духи</Button>
                 <button
                     style={{
+                        //background: mainBlue,
+                        //color: 'white',
                         background: mainBlue,
-                        color: 'white',
+                        color: buttontext,
+                        
                         marginTop: 10,
                         marginBottom: 10,
                         padding: 10,
