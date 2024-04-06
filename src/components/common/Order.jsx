@@ -74,7 +74,8 @@ const Order = ({type}) => {
                 }
             }
             if (answerId === '3') {
-                send('https://berryaudit.ru/api/TelegramHonessy/IWanaParce'){
+                XMLHttpRequest.send('https://berryaudit.ru/api/TelegramHonessy/IWanaParce')
+                {
                 method: "POST",
                 mode: "cors",
                 headers: {
@@ -87,7 +88,8 @@ const Order = ({type}) => {
                     user_id: user?.id.toString(),
                     order: order
                 })
-                })
+                }
+                )
             }
         })
         //             {id: 2, type: 'default', text: 'Нет'}
