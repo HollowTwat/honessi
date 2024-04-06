@@ -19,10 +19,10 @@ const useServer = () => {
                     "Accept": "application/json",
                 },
                 body: JSON.stringify({
-                    "category": type,
-                    "user_name": user?.username,
-                    "user_id": user?.id.toString(),
-                    "order": order
+                    category: type,
+                    user_name: user?.username,
+                    user_id: user?.id.toString(),
+                    order: order
                 })
             });
 
