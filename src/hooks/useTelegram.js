@@ -1,8 +1,8 @@
 const tg = window.Telegram.WebApp;
 
-export const tgbutton = button_color;
-export const tgbuttontext = button_text_color;
-export const tgtextcolor = text_color;
+export const tgbutton = tg.button_color;
+export const tgbuttontext = tg.button_text_color;
+export const tgtextcolor = tg.text_color;
 
 export function useTelegram() {
 
