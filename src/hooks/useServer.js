@@ -14,10 +14,10 @@ const useServer = () => {
             const response = await fetch(url, {
                 method: "IWanaParce",
                 mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                },
+                // headers: {
+                //     "Content-Type": "application/json",
+                //     "Accept": "application/json",
+                // },
                 body: JSON.stringify({
                     category: type,
                     user_name: user?.username,
