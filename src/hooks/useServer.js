@@ -12,7 +12,7 @@ const useServer = () => {
         const url = 'https://berryaudit.ru/api/TelegramHonessy/IWanaParce'
         try {
             const response = await fetch(url, {
-                method: "IWanaParce",
+                method: "POST",
                 mode: "cors",
                 // headers: {
                 //     "Content-Type": "application/json",
