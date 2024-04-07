@@ -21,7 +21,7 @@ const useServer = () => {
                         category: type, 
                         user_name: user?.username, 
                         user_id: user?.id.toString(), 
-                        order: order
+                        order: null
                         })
                     });
 
