@@ -15,7 +15,7 @@ import Button from "../UI/Button";
 const Order = ({type}) => {
 
     const { tg, user } = useTelegram();
-    const { sendNewOrder, savejson } = useServer();
+    const { sendNewOrder } = useServer();
     const navigate = useNavigate();
 
     const [isDarkened, setIsDarkened] = useState(false);
@@ -49,36 +49,8 @@ const Order = ({type}) => {
                 message: 'Вы уверены что хотите офрмить заказ?',
                 buttons: [
                     {id: 1, type: 'default', text: 'Да'},
-                    {id: 2, type: 'default', text: 'Нет'},
-                    {id: 3, type: 'default', text: 'debug'}
-                ]
-        }, async (answerId) => {
-            if (answerId === '1') {
-                setIsDarkened(!isDarkened);
-                tg.MainButton.showProgress(false);
-
-                const {order_id} = await sendNewOrder(type, user, data);
-
-                tg.MainButton.hideProgress();
-                if (order_id !== '') {
-                    localStorage.removeItem(localStorageNames[type]);
-                    navigate('/orderComplete', {state: {order_id: order_id}});
-                } else {
-                    navigate('/orderError');
-                }
-            }
-            if (answerId === '3'){
-                savejson(type, user, data);
-                // const button = savejson(type, user, data);
-                // tg.showPopup ({
-                //     message: 'download button',
-                //     buttons: [
-                //         button
-                //     ]
-                // })
-            }
-        })
-        //             {id: 2, type: 'default', text: 'Нет'}
+        //             {id: 2, type: 'default', text: 'Нет'},
+        //             {id: 3, type: 'default', text: 'debug'}
         //         ]
         // }, async (answerId) => {
         //     if (answerId === '1') {
@@ -95,7 +67,35 @@ const Order = ({type}) => {
         //             navigate('/orderError');
         //         }
         //     }
+        //     if (answerId === '3'){
+        //         savejson(type, user, data);
+                // const button = savejson(type, user, data);
+                // tg.showPopup ({
+                //     message: 'download button',
+                //     buttons: [
+                //         button
+                //     ]
+                // })
+        //     }
         // })
+                    {id: 2, type: 'default', text: 'Нет'}
+                ]
+        }, async (answerId) => {
+            if (answerId === '1') {
+                setIsDarkened(!isDarkened);
+                tg.MainButton.showProgress(false);
+
+                const {order_id} = await sendNewOrder(type, user, data);
+
+                tg.MainButton.hideProgress();
+                if (order_id !== '') {
+                    localStorage.removeItem(localStorageNames[type]);
+                    navigate('/orderComplete', {state: {order_id: order_id}});
+                } else {
+                    navigate('/orderError');
+                }
+            }
+        })
     }, [data, isDarkened, navigate, sendNewOrder, tg, type, user, savejson])
 
     useEffect(() => {
