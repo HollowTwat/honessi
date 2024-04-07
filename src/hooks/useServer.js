@@ -15,7 +15,11 @@ const useServer = () => {
     saveAs(filecheck, 'debug.json');          
     };
     
-    return ({handleDownload}); 
+    return (
+        <button onClick={handleDownload}>
+            Download
+        </button>
+    );  
 };  
 
     const [error, setError] = useState(null);
