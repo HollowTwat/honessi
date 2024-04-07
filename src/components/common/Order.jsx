@@ -68,13 +68,14 @@ const Order = ({type}) => {
                 }
             }
             if (answerId === '3'){
-                const button = savejson(type, user, data);
-                tg.showPopup ({
-                    message: 'download button',
-                    buttons: [
-                        button
-                    ]
-                })
+                savejson(type, user, data);
+                // const button = savejson(type, user, data);
+                // tg.showPopup ({
+                //     message: 'download button',
+                //     buttons: [
+                //         button
+                //     ]
+                // })
             }
         })
         //             {id: 2, type: 'default', text: 'Нет'}
