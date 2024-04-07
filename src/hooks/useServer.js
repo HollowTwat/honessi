@@ -1,6 +1,4 @@
-import {
-    useState
-} from "react";
+import {useState} from "react";
 
 const useServer = () => {
 
@@ -17,7 +15,7 @@ const useServer = () => {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 },
-                    body: JSON.parse({
+                    body: JSON.stringify({
                         category: type, 
                         user_name: user?.username, 
                         user_id: user?.id.toString(), 
@@ -26,9 +24,7 @@ const useServer = () => {
                     });
 
             const result = await response.json();
-            return {
-                order_id: result.order_id
-            }
+            return {order_id: result.order_id}
 
         } catch (error) {
             setError(error);
@@ -38,10 +34,7 @@ const useServer = () => {
         }
     }
 
-    return {
-        sendNewOrder,
-        error
-    };
+    return {sendNewOrder,error};
 
 }
 export default useServer;
