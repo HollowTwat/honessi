@@ -8,11 +8,11 @@ const useServer = () => {
         const filecheck = new Blob([JSON.stringify({
             category: type,
             user_name: user?.username,
-            user_id: use?.id.toString(),
+            user_id: user?.id.toString(),
             order: order
         })
     ], {type:json});
-    saveAs(file, debug.json);          
+    saveAs(filecheck, 'debug.json');          
     };
     
     return (
