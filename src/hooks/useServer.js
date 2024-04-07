@@ -44,5 +44,4 @@ const useServer = () => {
     };
 
 }
-export bodybag
 export default useServer;
