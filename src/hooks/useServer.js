@@ -35,7 +35,7 @@ const useServer = () => {
         try {
             const response = await fetch(url, {
                 method: "POST",
-                mode: "cors",
+                // mode: "cors",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
