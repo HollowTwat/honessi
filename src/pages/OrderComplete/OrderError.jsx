@@ -64,7 +64,7 @@ const OrderError = () => {
                     order_id: result.order_id
                 }
             }catch (error)
-        };
+    };
 
         return {error,order_id}
 
