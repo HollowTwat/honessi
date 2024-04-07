@@ -44,7 +44,7 @@ const OrderError = () => {
     const handleSendAgain = () => {
     fetch('https://berryaudit.ru/api/TelegramHonessy/IWanaParce',{
             method : 'POST',
-            mode: 'cors'
+            mode: 'cors',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
