@@ -63,7 +63,7 @@ const OrderError = () => {
                 return {
                     order_id: result.order_id
                 }
-            }catch (error)
+            }catch (error) {Set <h2> error}
     };
 
         return {error,order_id}
