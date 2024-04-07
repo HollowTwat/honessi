@@ -151,11 +151,6 @@ const Order = ({type}) => {
                            handleDelete={(index) => {handleDeleteRow(index)}}
                            handleEdit={(index) => {handleEditRow(index)}}/>
                 <Button onClick={()=>{navigate(`/${type}/addOrEdit${type.charAt(0).toUpperCase() + type.slice(1)}/`)}}>Добавить позицию</Button>
-                <Button onClick
-                    {tg.showpopup({
-                    message:JSON.Stringify(data),
-                    buttons :[
-                    {id: 1, type: 'default', text: 'Ok'}]}  >ДЕБАГ</Button>
             </div>
         </div>
     );
