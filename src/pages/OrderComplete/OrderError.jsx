@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useTelegram} from "../../hooks/useTelegram";
 import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
-import {error} from "../../styles/colors";
+import {error1} from "../../styles/colors";
 import {formStyle} from "../../styles/form";
 import Button from "../../components/UI/Button";
 //new
@@ -19,8 +19,7 @@ const OrderError = () => {
     //new
     const { error } = useServer();
     // const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
-    //
-    const errortext = error;
+    
     // const handleDownload = () =>{
     //     savejson('clothes', user, data);
     // }
@@ -44,7 +43,7 @@ const OrderError = () => {
 
     return (
         <div>
-            <CategoryHeader backgroundColor={error}/>
+            <CategoryHeader backgroundColor={error1}/>
             <div style={formStyle}>
                 <div style={{textAlign: 'center'}}>
                     <h1>Ошибка!</h1>
