@@ -6,10 +6,10 @@ import {error} from "../../styles/colors";
 import {formStyle} from "../../styles/form";
 import Button from "../../components/UI/Button";
 //new
-import {useLocalStorage} from "@uidotdev/usehooks";
+// import {useLocalStorage} from "@uidotdev/usehooks";
 import useServer from "../../hooks/useServer";
-import {localStorageNames} from "../../constants/LocalStorageNames";
-import {initOrder} from "../../initData/order/InitOrder";
+// import {localStorageNames} from "../../constants/LocalStorageNames";
+// import {initOrder} from "../../initData/order/InitOrder";
 
 
 const OrderError = () => {
@@ -20,7 +20,7 @@ const OrderError = () => {
     const { error } = useServer();
     // const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
     //
-
+    const errortext = error;
     // const handleDownload = () =>{
     //     savejson('clothes', user, data);
     // }
