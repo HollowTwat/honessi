@@ -47,39 +47,8 @@ const Order = ({type}) => {
         tg.showPopup({
                 title: 'Оформление заказа',
                 message: 'Вы уверены что хотите офрмить заказ?',
-                //     +JSON.stringify({
-                //     category: type,
-                //     user_name: user?.username,
-                //     user_id: user?.id.toString(),
-                //     order: data
-                // }),
                 buttons: [
                     {id: 1, type: 'default', text: 'Да'},
-        //             {id: 2, type: 'default', text: 'Нет'},
-        //             {id: 3, type: 'default', text: 'debug'}
-        //         ]
-        // }, async (answerId) => {
-        //     if (answerId === '1') {
-        //         setIsDarkened(!isDarkened);
-        //         tg.MainButton.showProgress(false);
-
-        //         const {order_id} = await sendNewOrder(type, user, data);
-
-        //         tg.MainButton.hideProgress();
-        //         if (order_id !== '') {
-        //             localStorage.removeItem(localStorageNames[type]);
-        //             navigate('/orderComplete', {state: {order_id: order_id}});
-        //         } else {
-        //             navigate('/orderError');
-        //         }
-        //     }
-        //     if (answerId === '3') {
-        //         tg.showpopup(
-        //             message:JSON.Stringify(data),
-        //             buttons :[
-        //             {id: 1, type: 'default', text: 'Ok'}]
-        //     }
-        // })
                     {id: 2, type: 'default', text: 'Нет'}
                 ]
         }, async (answerId) => {
