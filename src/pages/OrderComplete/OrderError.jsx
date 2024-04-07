@@ -18,7 +18,7 @@ const OrderError = () => {
     const { tg, user } = useTelegram();
     //new
     // const { error } = useServer();
-    // const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
+    const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
     
     // const handleDownload = () =>{
     //     savejson('clothes', user, data);
