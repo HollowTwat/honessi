@@ -83,7 +83,7 @@ const OrderError = () => {
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
-                <Button onClick={post('xxx', user, data)}>Попробовать снова</Button>
+{/*                 <Button onClick={post('xxx', user, data)}>Попробовать снова</Button> */}
             </div>
         </div>
     );
