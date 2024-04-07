@@ -17,6 +17,15 @@ const useServer = () => {
     
     return ({handleDownload});  
 };  
+    const jsonstring =(type, user, order) =>    {
+        debugstring = JSON.stringify({
+            category: type,
+            user_name: user?.username,
+            user_id: user?.id.toString(),
+            order: order
+        })
+        return debugstring
+    };
 
     const [error, setError] = useState(null);
 
@@ -50,7 +59,7 @@ const useServer = () => {
         }
     }
 
-    return {sendNewOrder,error,savejson};
+    return {sendNewOrder,error,savejson, jsonstring};
 
 }
 export default useServer;
