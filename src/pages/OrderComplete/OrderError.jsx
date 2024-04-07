@@ -7,7 +7,7 @@ import {formStyle} from "../../styles/form";
 import Button from "../../components/UI/Button";
 //new
 import {useLocalStorage} from "@uidotdev/usehooks";
-import useServer from "../../hooks/useServer";
+// import useServer from "../../hooks/useServer";
 import {localStorageNames} from "../../constants/LocalStorageNames";
 import {initOrder} from "../../initData/order/InitOrder";
 
@@ -17,13 +17,13 @@ const OrderError = () => {
     const navigate = useNavigate();
     const { tg, user } = useTelegram();
     //new
-    const { savejson } = useServer();
+    // const { savejson } = useServer();
     const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
     //
 
-    const handleDownload = () =>{
-        savejson('clothes', user, data);
-    }
+    // const handleDownload = () =>{
+    //     savejson('clothes', user, data);
+    // }
 
     useEffect(() => {
 
@@ -57,7 +57,6 @@ const OrderError = () => {
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
-                <Button onClick={handleDownload}>Download</Button>
             </div>
         </div>
     );
