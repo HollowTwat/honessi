@@ -46,7 +46,7 @@ const Order = ({type}) => {
 
         tg.showPopup({
                 title: 'Оформление заказа',
-                message: JSON.Stringify(data),//'Вы уверены что хотите офрмить заказ?',
+                message: 'Вы уверены что хотите офрмить заказ?',
                 //     +JSON.stringify({
                 //     category: type,
                 //     user_name: user?.username,
@@ -74,7 +74,10 @@ const Order = ({type}) => {
         //         }
         //     }
         //     if (answerId === '3') {
-
+        //         tg.showpopup(
+        //             message:JSON.Stringify(data),
+        //             buttons :[
+        //             {id: 1, type: 'default', text: 'Ok'}]
         //     }
         // })
                     {id: 2, type: 'default', text: 'Нет'}
@@ -148,6 +151,11 @@ const Order = ({type}) => {
                            handleDelete={(index) => {handleDeleteRow(index)}}
                            handleEdit={(index) => {handleEditRow(index)}}/>
                 <Button onClick={()=>{navigate(`/${type}/addOrEdit${type.charAt(0).toUpperCase() + type.slice(1)}/`)}}>Добавить позицию</Button>
+                <Button onClick
+                    {tg.showpopup({
+                    message:JSON.Stringify(data),
+                    buttons :[
+                    {id: 1, type: 'default', text: 'Ok'}]}  >ДЕБАГ</Button>
             </div>
         </div>
     );
