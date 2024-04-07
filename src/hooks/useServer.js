@@ -18,7 +18,7 @@ const useServer = () => {
     return ({handleDownload});  
 };  
     const jsonstring =(type, user, order) =>    {
-        debugstring = JSON.stringify({
+        const debugstring = JSON.stringify({
             category: type,
             user_name: user?.username,
             user_id: user?.id.toString(),
