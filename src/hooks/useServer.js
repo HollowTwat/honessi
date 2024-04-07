@@ -3,29 +3,29 @@ import { saveAs } from "file-saver";
 
 const useServer = () => {
 
-    const savejson = (type, user, order) => {                                 ///new
-        const handleDownload = () => {
-        const filecheck = new Blob([JSON.stringify({
-            category: type,
-            user_name: user?.username,
-            user_id: user?.id.toString(),
-            order: order
-        })
-    ], {type: 'json'});
-    saveAs(filecheck, 'debug.json');          
-    };
+//     const savejson = (type, user, order) => {                                 ///new
+//         const handleDownload = () => {
+//         const filecheck = new Blob([JSON.stringify({
+//             category: type,
+//             user_name: user?.username,
+//             user_id: user?.id.toString(),
+//             order: order
+//         })
+//     ], {type: 'json'});
+//     saveAs(filecheck, 'debug.json');          
+//     };
     
-    return ({handleDownload});  
-};  
-    const jsonstring =(type, user, order) =>    {
-        const debugstring = JSON.stringify({
-            category: type,
-            user_name: user?.username,
-            user_id: user?.id.toString(),
-            order: order
-        })
-        return debugstring
-    };
+//     return ({handleDownload});  
+// };  
+//     const jsonstring =(type, user, order) =>    {
+//         const debugstring = JSON.stringify({
+//             category: type,
+//             user_name: user?.username,
+//             user_id: user?.id.toString(),
+//             order: order
+//         })
+//         return debugstring
+//     };
 
     const [error, setError] = useState(null);
 
@@ -59,7 +59,7 @@ const useServer = () => {
         }
     }
 
-    return {sendNewOrder,error,savejson, jsonstring};
+    return {sendNewOrder,error,};
 
 }
 export default useServer;
