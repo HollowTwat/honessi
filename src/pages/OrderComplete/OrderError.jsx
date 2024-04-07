@@ -95,8 +95,7 @@ const OrderError = () => {
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
-                <button onClick={handleSendAgain}>Send Again</button>
-{/*                 <Button onClick={post('xxx', user, data)}>Попробовать снова</Button> */}
+                <Button onClick={handleSendAgain}>Отправить</Button>
             </div>
         </div>
     );
