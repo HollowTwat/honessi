@@ -1,6 +1,26 @@
 import {useState} from "react";
+import { saveAs } from "file-saver";
 
 const useServer = () => {
+
+    const savejson = (type, user, order) => {                                 ///new
+        const handleDownload = () => {
+        const filecheck = new Blob([JSON.stringify({
+            category: type,
+            user_name: user?.username,
+            user_id: use?.id.toString(),
+            order: order
+        })
+    ], {type:json});
+    saveAs(file, debug.json);          
+    };
+    
+    return (
+        <button onClick={handleDownload}>
+            Download
+        </button>
+    ); 
+};  
 
     const [error, setError] = useState(null);
 
