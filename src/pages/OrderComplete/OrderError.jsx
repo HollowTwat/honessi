@@ -6,18 +6,18 @@ import {error1} from "../../styles/colors";
 import {formStyle} from "../../styles/form";
 import Button from "../../components/UI/Button";
 //new
-// import {useLocalStorage} from "@uidotdev/usehooks";
-import useServer from "../../hooks/useServer";
-// import {localStorageNames} from "../../constants/LocalStorageNames";
-// import {initOrder} from "../../initData/order/InitOrder";
+import {useLocalStorage} from "@uidotdev/usehooks";
+// import useServer from "../../hooks/useServer";
+import {localStorageNames} from "../../constants/LocalStorageNames";
+import {initOrder} from "../../initData/order/InitOrder";
 
 
 const OrderError = () => {
 
     const navigate = useNavigate();
-    const { tg } = useTelegram();
+    const { tg, user } = useTelegram();
     //new
-    const { error } = useServer();
+    // const { error } = useServer();
     // const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
     
     // const handleDownload = () =>{
@@ -50,7 +50,7 @@ const OrderError = () => {
                     <h2>К сожалению, при оформелении заказа произошла ошибка!</h2>
                 </div>
                 <h4 style={{textAlign: 'center', marginTop: 50}}>
-                    {error}
+                    {JSON.stringify(category: 'xxx', user_name: user?.username, user_id: user?.id.toString(), order: data)}
                 </h4>
             </div>
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
