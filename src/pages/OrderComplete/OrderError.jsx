@@ -42,7 +42,7 @@ const OrderError = () => {
     }
 
     const handleSendAgain = () => {
-    fetch('https://berryaudit.ru/api/TelegramHonessy/IWanaParce',{
+    fetch('https://berryaudit.ru/api/TelegramHonessy/InputTest',{
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
