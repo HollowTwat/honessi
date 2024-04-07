@@ -11,7 +11,7 @@ const useServer = () => {
             user_id: user?.id.toString(),
             order: order
         })
-    ], {type:json});
+    ], {type: 'json'});
     saveAs(filecheck, 'debug.json');          
     };
     
