@@ -41,6 +41,18 @@ const OrderError = () => {
         tg.close()
     }
 
+    const handleSendAgain = () => {
+    fetch('https://berryaudit.ru/api/TelegramHonessy/IWanaParce',{
+            method : 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            body: '{"category":"clothes","user_name":"HollowTwat","user_id":"464682207","order":{"organization":{"inn":"1233211233","entity":"ООО","name":"IPNAME","edoType":"ЭДО-ЛАЙТ","labelType":"90x60"},"positions":[{"total":222,"trademark":"ТоварныйЗнак","article":"Артикул","clothesType":"Бабочка","color":"Бело-розовый","position":[{"size":"22","count":"222"}],"materials":["Деним","Акрил"],"userMaterials":[],"sex":"Мужской","country":"Афганистан","hsCode":"4203100001","articlePrice":false,"articlePriceData":{"price":"0","nds":""},"permissiveDocumentation":false,"permissiveDocumentationData":{"documentationsType":"","nameDoc":"","date":""}}],"accumulation":{"countLines":1,"countItems":222,"totalPrice":0}}}'
+
+        })
+    }
+
     // const post = async (type, user, order) => {
     
     //         const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input='+user?.id.toString();
@@ -83,6 +95,7 @@ const OrderError = () => {
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
+                <button onClick={handleSendAgain}>Send Again</button>
 {/*                 <Button onClick={post('xxx', user, data)}>Попробовать снова</Button> */}
             </div>
         </div>
