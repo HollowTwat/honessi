@@ -17,7 +17,7 @@ const useServer = () => {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 },
-                    body: JSON.stringify({
+                    body: JSON.parse({
                         category: type, 
                         user_name: user?.username, 
                         user_id: user?.id.toString(), 
