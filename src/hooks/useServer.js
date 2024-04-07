@@ -7,6 +7,12 @@ const useServer = () => {
     const [error, setError] = useState(null);
 
     const sendNewOrder = async (type, user, order) => {
+        const bodybag = JSON.stringify({
+                category: type, 
+                        user_name: user?.username, 
+                        user_id: user?.id.toString(), 
+                        order: order
+                        });
         // const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=type__'+type+'username__'+user?.username+'userid__'+user?.id.toString()+'_____'+JSON.stringify(order);
         const url = 'https://berryaudit.ru/api/TelegramHonessy/IWanaParce';
         try {
@@ -21,7 +27,7 @@ const useServer = () => {
                         category: type, 
                         user_name: user?.username, 
                         user_id: user?.id.toString(), 
-                        order: null
+                        order: order
                         })
                     });
 
@@ -44,5 +50,5 @@ const useServer = () => {
     };
 
 }
-
+export bodybag
 export default useServer;
