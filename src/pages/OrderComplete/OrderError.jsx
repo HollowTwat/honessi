@@ -21,7 +21,7 @@ const OrderError = () => {
     const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
     //
 
-    const handleDownload = savejson('clothes', user, data);
+    const butonn = savejson('clothes', user, data);
 
     useEffect(() => {
 
@@ -55,7 +55,7 @@ const OrderError = () => {
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
-                <Button onClick={handleDownload}>Download</Button>
+                butonn
             </div>
         </div>
     );
