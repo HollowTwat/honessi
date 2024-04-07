@@ -46,7 +46,7 @@ const OrderError = () => {
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json",
+                // "Accept": "application/json",
             },
             body: '{"category":"clothes","user_name":"HollowTwat","user_id":"464682207","order":{"organization":{"inn":"1233211233","entity":"ООО","name":"IPNAME","edoType":"ЭДО-ЛАЙТ","labelType":"90x60"},"positions":[{"total":222,"trademark":"ТоварныйЗнак","article":"Артикул","clothesType":"Бабочка","color":"Бело-розовый","position":[{"size":"22","count":"222"}],"materials":["Деним","Акрил"],"userMaterials":[],"sex":"Мужской","country":"Афганистан","hsCode":"4203100001","articlePrice":false,"articlePriceData":{"price":"0","nds":""},"permissiveDocumentation":false,"permissiveDocumentationData":{"documentationsType":"","nameDoc":"","date":""}}],"accumulation":{"countLines":1,"countItems":222,"totalPrice":0}}}'
 
