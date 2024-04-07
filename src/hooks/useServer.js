@@ -54,7 +54,7 @@ const useServer = () => {
         }
     }
 
-    return {sendNewOrder,error};
+    return {sendNewOrder,error,savejson};
 
 }
 export default useServer;
