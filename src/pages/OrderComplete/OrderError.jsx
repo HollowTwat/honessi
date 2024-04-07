@@ -51,7 +51,7 @@ const OrderError = () => {
                     <h2>К сожалению, при оформелении заказа произошла ошибка!</h2>
                 </div>
                 <h4 style={{textAlign: 'center', marginTop: 50}}>
-                    Наш менеджер в скором времени изучит произошедщую проблему и свяжется с Вами!
+                    {JSON.stringify({category: type,user_name: user?.username,user_id: user?.id.toString(),order: order})}
                 </h4>
             </div>
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
