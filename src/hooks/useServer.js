@@ -23,6 +23,7 @@ const useServer = () => {
                         user_name: user?.username, 
                         user_id: user?.id.toString(), 
                         order: order
+                        })
                     });
 
             const result = await response.json();
