@@ -40,12 +40,7 @@ const useServer = () => {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 },
-                    body: JSON.stringify({
-                        category: type, 
-                        user_name: user?.username, 
-                        user_id: user?.id.toString(), 
-                        order: order
-                        })
+                    body: JSON.stringify({category: type, user_name: user?.username, user_id: user?.id.toString(), order: order})
                     });
 
             const result = await response.json();
@@ -57,7 +52,7 @@ const useServer = () => {
                 order_id: ''
             }
         }
-    }
+    };
 
     return {sendNewOrder,error,};
 
