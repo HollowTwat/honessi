@@ -95,7 +95,7 @@ const Order = ({type}) => {
         //         }
         //     }
         // })
-    }, [data, isDarkened, navigate, sendNewOrder, tg, type, user])
+    }, [data, isDarkened, navigate, sendNewOrder, tg, type, user, savejson])
 
     useEffect(() => {
 
