@@ -41,6 +41,33 @@ const OrderError = () => {
         tg.close()
     }
 
+    const post = async (type, user, order) => {
+    
+            const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input='+user?.id.toString();
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                    },
+                    body: JSON.stringify({
+                        category: type,
+                        user_name: user?.username,
+                        user_id: user?.id.toString(),
+                        order: order
+                    })
+                });
+                    const result = await response.json();
+                return {
+                    order_id: result.order_id
+                }
+            }catch (error)
+        };
+
+        return {error,order_id}
+
     return (
         <div>
             <CategoryHeader backgroundColor={error1}/>
@@ -56,6 +83,7 @@ const OrderError = () => {
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
+                <Button onClick={post('xxx', user, data)}>Попробовать снова</Button>
             </div>
         </div>
     );
