@@ -2,6 +2,7 @@ const tg = window.Telegram.WebApp;
 
 export const tgbg = tg.bg_color;
 export const tgbutton = tg.button_color;
+export const tgbutton2 = tg.secondary_bg_color;
 export const tgbuttontext = tg.button_text_color;
 export const tgtextcolor = tg.text_color;
 
