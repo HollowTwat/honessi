@@ -1,5 +1,5 @@
 import React from "react";
-import {tg_bttn,textcolor} from "../../styles/colors";
+import {tg_bttn,buttontext} from "../../styles/colors";
 import {button} from "../../styles/button";
 
 const Button = ({background = tg_bttn, textColor = buttontext, ...props}) => {
