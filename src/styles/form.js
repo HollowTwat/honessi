@@ -1,6 +1,5 @@
-import {secondaryBG,textcolor} from "./colors"
+import {textcolor} from "./colors"
 export const formStyle = {
-    color: secondaryBG,
     textcolor: textcolor,
     width: '100%',
     paddingLeft: 20,
