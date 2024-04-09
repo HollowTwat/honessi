@@ -1,7 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {TextField} from "@mui/material";
 import {validate, validateError} from "../../validation/validation";
-import {secondaryBG, textcolor} from "../../styles/colors";
 
 const Input = ({label, value, onChangeValid = () => {}, validationType = 'default', helpText = '', onChange = () => {}, disabled = false, required = false, ...props}) => {
 
@@ -23,8 +22,6 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
     }, [validationType, onChange, onChangeValid]);
 
     const textFieldProps = {
-        color: secondaryBG,
-        textcolor: textcolor,
         error: !isValid,
         disabled: disabled,
         required: required,
@@ -37,7 +34,7 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
     };
 
     return (
-        <div style={{width: '100%', marginTop: 10, marginBottom: 10, textcolor: textcolor}}>
+        <div style={{width: '100%', marginTop: 10, marginBottom: 10}}>
             <TextField {...textFieldProps}/>
         </div>
     );
