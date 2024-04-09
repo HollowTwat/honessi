@@ -6,10 +6,10 @@
 //     tgbg
 // } from "../hooks/useTelegram"
 
-export const tg_bttn = tgbutton
+// export const tg_bttn = tgbutton
 // export const tg_bg = tgbg    
 // export const secondaryBG = tgbutton2
-export const buttontext = tgbuttontext
+// export const buttontext = tgbuttontext
 // export const textcolor = tgtextcolor
 export const mainBlue = '#0d5ffe'
 export const mainYellow = '#e5d022'
