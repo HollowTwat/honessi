@@ -1,8 +1,8 @@
 import React from "react";
-import {secondaryBG, buttontext} from "../../styles/colors";
+import {tgbg, textcolor} from "../../styles/colors";
 import {button} from "../../styles/button";
 
-const Button = ({background = secondaryBG, textColor = buttontext, ...props}) => {
+const Button = ({background = tgbg, textColor = textcolor, ...props}) => {
 
     return (
         <button {...props} className={'button'} style={{backgroundColor: background, color: textColor, ...button}}/>
