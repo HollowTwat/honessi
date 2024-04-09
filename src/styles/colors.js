@@ -1,10 +1,11 @@
 import{
     tgbutton,
+    tgbutton2,
     tgbuttontext,
     tgtextcolor} from "../hooks/useTelegram"
     
     
-    
+export const secondaryBG = tgbutton2
 export const buttontext = tgbuttontext
 export const textcolor = tgtextcolor
 export const mainBlue = '#0d5ffe'
