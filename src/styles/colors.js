@@ -1,10 +1,10 @@
-import{
-    tgbutton,
-    // tgbutton2,
-    tgbuttontext,
-    // tgtextcolor,
-    // tgbg
-} from "../hooks/useTelegram"
+// import{
+//     tgbutton,
+//     tgbutton2,
+//     tgbuttontext,
+//     tgtextcolor,
+//     tgbg
+// } from "../hooks/useTelegram"
 
 export const tg_bttn = tgbutton
 // export const tg_bg = tgbg    
