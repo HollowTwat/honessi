@@ -140,8 +140,8 @@ const AddOrEditShoes = () => {
 
         handleDataUpdate(positions, 'position');
         // handleDataUpdate(totalCount, 'total');
-        const boxdata = position.withBoxData.countBox
-        if (boxdata !== '0') {
+        const boxdata = Number(position.withBoxData.countBox)
+        if (boxdata != 0) {
             handleDataUpdate(totalCount*boxdata, 'total');
         } else {handleDataUpdate(totalCount, 'total');}
     }
