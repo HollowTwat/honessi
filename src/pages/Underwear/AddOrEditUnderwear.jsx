@@ -149,7 +149,12 @@ const AddOrEditUnderwear = () => {
         }
 
         handleDataUpdate(positions, 'position');
-        handleDataUpdate(totalCount, 'total');
+        // handleDataUpdate(totalCount, 'total');
+        const boxdata = Number(position.setData.count)
+        if (boxdata !== 0) {
+            handleDataUpdate(totalCount*boxdata, 'total');
+        } else {handleDataUpdate(totalCount, 'total');}
+    }
     }
 
     return (
