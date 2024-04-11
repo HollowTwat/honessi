@@ -155,7 +155,6 @@ const AddOrEditUnderwear = () => {
             handleDataUpdate(totalCount*boxdata, 'total');
         } else {handleDataUpdate(totalCount, 'total');}
     }
-    }
 
     return (
         <div>
