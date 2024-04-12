@@ -196,7 +196,7 @@ const AddOrEditPerfume = () => {
                     label={"Кол-во"}
                     id = 'total1'
                     onChange={(e) => {multiply(e)}}
-
+                    onChangeValid={(e) => {handleValidUpdate(e, 'total')}}
                 />
                 <Input
                     label={"Итого"}
