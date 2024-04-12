@@ -132,6 +132,13 @@ const AddOrEditPerfume = () => {
         }));
     }
 
+        const multiply = (randovalue) => {
+        const boxmultiplier = Number(position.setData.count)
+            if (boxmultiplier !=== 0){
+                handleDataUpdate(boxmultiplier*randovalue,'total');
+            }else {handleDataUpdate (randovalue, 'total')};
+    }
+
 
     return (
         <div>
@@ -187,9 +194,15 @@ const AddOrEditPerfume = () => {
                 />
                 <Input
                     label={"Кол-во"}
+                    id = 'total1'
+                    onChange={(e) => {multiply(e)}}
+
+                />
+                <Input
+                    label={"Итого"}
                     value={position.total}
-                    onChange={(e)=> {handleDataUpdate(e, 'total')}}
-                    onChangeValid={(e) => {handleValidUpdate(e, 'total')}}
+                    disabled={true}
+                    onChange={(e) => {handleDataUpdate(e, 'total')}}
                 />
                 <CustomSelect
                     label={"Страна"}
