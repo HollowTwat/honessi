@@ -134,7 +134,7 @@ const AddOrEditPerfume = () => {
 
         const multiply = (randovalue) => {
         const boxmultiplier = Number(position.setData.count)
-            if (boxmultiplier !=== 0){
+            if (boxmultiplier !== 0){
                 handleDataUpdate(boxmultiplier*randovalue,'total');
             }else {handleDataUpdate (randovalue, 'total')};
     }
