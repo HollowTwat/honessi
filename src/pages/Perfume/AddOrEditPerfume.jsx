@@ -203,7 +203,7 @@ const AddOrEditPerfume = () => {
                     value={position.total}
                     disabled={true}
                     onChange={(e) => {handleDataUpdate(e, 'total')}}
-                    onChangeValid={(isValid) => {handleValidUpdate(isValid, 'total')}}
+                    onChangeValid={(e) => {handleValidUpdate(e, 'total')}}
                 />
                 <CustomSelect
                     label={"Страна"}
