@@ -1,22 +1,23 @@
-import React, {useEffect, useState} from 'react';
-import {Checkbox, FormControl, InputLabel, ListItemText, MenuItem, OutlinedInput, Select} from "@mui/material";
+import React, { useEffect, useState } from 'react';
+import { Checkbox, FormControl, InputLabel, ListItemText, MenuItem, OutlinedInput, Select, Button } from "@mui/material";
 
-const MultipleSelect = ({label = '', options = [], initValue = [], onChange = () => {}, onChangeValid = () => {}}) => {
-
-    const [values, setValues] = useState(initValue)
+const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = () => {}, onChangeValid = () => {} }) => {
+    const [values, setValues] = useState(initValue);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
-
-        onChange(values)
-        onChangeValid(values.length > 0)
+        onChange(values);
+        onChangeValid(values.length > 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [values])
+    }, [values]);
 
     const handleChange = (event) => {
-        const {
-            target: { value },
-        } = event;
-        setValues(typeof value === 'string' ? value.split(',') : value,);
+        const { target: { value } } = event;
+        setValues(typeof value === 'string' ? value.split(',') : value);
+    };
+
+    const handleClose = () => {
+        setMenuOpen(false);
     };
 
     return (
@@ -33,13 +34,23 @@ const MultipleSelect = ({label = '', options = [], initValue = [], onChange = ()
                     onChange={handleChange}
                     input={<OutlinedInput label={label} />}
                     renderValue={(selected) => selected.join(', ')}
+                    MenuProps={{
+                        onClose: handleClose // Call handleClose when the menu is closed
+                    }}
+                    open={menuOpen}
+                    onOpen={() => setMenuOpen(true)}
                 >
                     {options.map((option) => (
                         <MenuItem key={option} value={option}>
-                            <Checkbox checked={values.indexOf(option) > -1}  sx={{width: "unset"}} />
+                            <Checkbox checked={values.indexOf(option) > -1} sx={{ width: "unset" }} />
                             <ListItemText primary={option} />
                         </MenuItem>
                     ))}
+                    <MenuItem>
+                        <Button onClick={handleClose} variant="contained" color="primary">
+                            Ok
+                        </Button>
+                    </MenuItem>
                 </Select>
             </FormControl>
         </div>
