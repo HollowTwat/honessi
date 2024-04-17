@@ -46,7 +46,7 @@ const Ad = () => {
                         cursor: 'pointer',
                         height: 80,
                     }}
-                    onClick={() => window.open('t.me/HollowTwat', '_blank')}
+                    onClick={() => window.open('https://t.me/HollowTwat', '_blank')}
                 >
                     <span style={{fontSize: 18,}}>Заказать приложение</span>
                     <br/>
