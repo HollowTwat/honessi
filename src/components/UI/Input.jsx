@@ -36,7 +36,7 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
     };
 
     return (
-        <div style={{width: '100%', marginTop: 10, marginBottom: 10}>
+        <div style={{width: '100%', marginTop: 10, marginBottom: 10}}>
             <TextField {...textFieldProps}/>
         </div>
     );
