@@ -3,8 +3,8 @@
 
 // Define the light theme properties
 const lightTheme = {
-    // body: '#FFFFFF', // White background
-    body: 'violet',
+    body: '#FFFFFF', // White background
+    // body: 'violet',
     text: '#363537', // Dark gray text color
     toggleBorder: '#FFF',
     background: '#363537',
@@ -12,8 +12,8 @@ const lightTheme = {
 
 // Define the dark theme properties
 const darkTheme = {
-    // body: '#363537', // Dark gray background
-    body: 'red',
+    body: '#363537', // Dark gray background
+    // body: 'red',
     text: '#FAFAFA', // Very light gray text color
     toggleBorder: '#6B8096',
     background: '#999',
