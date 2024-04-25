@@ -12,8 +12,8 @@
 
 body {
     
-/*     background: var(--tg-theme-bg-color);
-    color: var(--tg-theme-text-color); */
-    background: white;
-    color: black;
+    background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+/*     background: white;
+    color: black; */
 }
