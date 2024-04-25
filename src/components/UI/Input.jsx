@@ -36,9 +36,10 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
     };
 
     return (
-        <div style={{width: '100%', marginTop: 10, marginBottom: 10}}
-            sx={{color: theme[themestate].text, background: theme[themestate].body}}>
-            <TextField {...textFieldProps}/>
+        <div style={{width: '100%', marginTop: 10, marginBottom: 10}>
+            <TextField
+                sx={{color: theme[themestate].text}}
+                {...textFieldProps}/>
         </div>
     );
 };
