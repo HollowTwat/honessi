@@ -4,6 +4,7 @@
 // Define the light theme properties
 const lightTheme = {
     body: '#FFFFFF', // White background
+    button: '#808080', //#363537
     // body: 'violet',
     text: '#363537', // Dark gray text color
     textfaded: '#DFDFDF',
@@ -14,6 +15,7 @@ const lightTheme = {
 // Define the dark theme properties
 const darkTheme = {
     body: '#363537', // Dark gray background
+    button: '#363537',
     // body: 'red',
     text: '#FAFAFA', // Very light gray text color
     textfaded: '#606060',
