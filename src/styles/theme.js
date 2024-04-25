@@ -1,4 +1,3 @@
-import {tg} from '../hooks/useTelegram'
 
 
 
@@ -33,7 +32,7 @@ export const theme = {
 // }
 
 // export default themestate
-const colorScheme = tg.colorScheme ? tg.colorScheme : 'dark';
+const colorScheme = window.Telegram.WebApp.colorScheme ? window.Telegram.WebApp.colorScheme : 'dark';
 
 export const themestate = colorScheme
 
