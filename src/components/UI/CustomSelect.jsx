@@ -35,7 +35,7 @@ const CustomSelect = (
                 <InputLabel>{label}</InputLabel>
                 <Select
                     sx = {{ 
-                        label: {color: theme[themestate].textfaded}
+                        style: {color: theme[themestate].textfaded}
                     }}
                     value={internalValue}
                     label={label}
