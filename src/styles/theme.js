@@ -6,6 +6,7 @@ const lightTheme = {
     body: '#FFFFFF', // White background
     // body: 'violet',
     text: '#363537', // Dark gray text color
+    textfaded: '#DFDFDF',
     toggleBorder: '#FFF',
     background: '#363537',
 };
@@ -15,6 +16,7 @@ const darkTheme = {
     body: '#363537', // Dark gray background
     // body: 'red',
     text: '#FAFAFA', // Very light gray text color
+    textfaded: '#606060',
     toggleBorder: '#6B8096',
     background: '#999',
 };
