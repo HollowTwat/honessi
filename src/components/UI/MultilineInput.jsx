@@ -25,7 +25,7 @@ const MultilineInput = ({label = '', helpText = '', initValue = [], onChange = (
     return (
         <div style={{width: '100%', marginTop: 10, marginBottom: 10}}>
             <TextField sx={{ 
-            color: theme[themestate].text ,
+            input: {color: theme[themestate].text} ,
             label: { color: theme[themestate].textfaded }              
             }}
                 multiline {...textFieldProps}/>
