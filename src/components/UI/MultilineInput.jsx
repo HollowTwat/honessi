@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {TextField} from "@mui/material";
+import {theme, themestate} from '../../styles/theme'; //new
 
 const MultilineInput = ({label = '', helpText = '', initValue = [], onChange = () => {}}) => {
 
@@ -23,7 +24,11 @@ const MultilineInput = ({label = '', helpText = '', initValue = [], onChange = (
 
     return (
         <div style={{width: '100%', marginTop: 10, marginBottom: 10}}>
-            <TextField multiline {...textFieldProps}/>
+            <TextField sx={{ 
+            input: { color: theme[themestate].text },
+            label: { color: theme[themestate].textfaded }              
+            }}
+                multiline {...textFieldProps}/>
         </div>
     );
 };
