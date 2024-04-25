@@ -2,6 +2,8 @@ import React, {useCallback, useState} from 'react';
 import {TextField} from "@mui/material";
 import {validate, validateError} from "../../validation/validation";
 
+import {theme, themestate} from '../../styles/theme' //new
+
 const Input = ({label, value, onChangeValid = () => {}, validationType = 'default', helpText = '', onChange = () => {}, disabled = false, required = false, ...props}) => {
 
     const [isValid, setValid] = useState(true);
@@ -34,7 +36,8 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
     };
 
     return (
-        <div style={{width: '100%', marginTop: 10, marginBottom: 10}}>
+        <div style={{width: '100%', marginTop: 10, marginBottom: 10}}
+            sx={{color: theme[themestate].text}}>
             <TextField {...textFieldProps}/>
         </div>
     );
