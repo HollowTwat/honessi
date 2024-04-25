@@ -37,7 +37,7 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
 
     return (
         <div style={{width: '100%', marginTop: 10, marginBottom: 10}}>
-            <TextField sx={{textcolor: 'white'}} {...textFieldProps}/>
+            <TextField sx={{ input: { color: 'red' } }} {...textFieldProps}/>
         </div>
     );
 };
