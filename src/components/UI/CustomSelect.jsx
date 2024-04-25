@@ -32,7 +32,11 @@ const CustomSelect = (
             marginBottom: 10,
         }}>
             <FormControl fullWidth>
-                <InputLabel>{label}</InputLabel>
+                <InputLabel
+                    sx = {{ 
+                        color: theme[themestate].textfaded
+                    }}
+                    >{label}</InputLabel>
                 <Select
                     sx = {{ 
                         color: theme[themestate].textfaded
