@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
+import {theme, themestate} from '../../styles/theme'; //new
+
 const CustomSelect = (
     {
         label = '',
@@ -32,6 +34,9 @@ const CustomSelect = (
             <FormControl fullWidth>
                 <InputLabel>{label}</InputLabel>
                 <Select
+                    sx = {{ 
+                        label: {color: theme[themestate].textfaded}
+                    }}
                     value={internalValue}
                     label={label}
                     onChange={handleChange}
