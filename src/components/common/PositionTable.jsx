@@ -16,44 +16,44 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
         <TableContainer component={Paper} sx={{backgroundColor: 'var(--tg-theme-bg-color)', color:theme[themestate].text}}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
-                    <TableRow>
+                    <TableRow sx={{color:theme[themestate].text}}>
                         {columnsName.map((columnName) => (
                             <TableCell align="left" sx={{color:theme[themestate].text}}>{columnName}</TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody sx={{color:theme[themestate].text}}>
                     {values.map((row, index) => (
                         <TableRow
                             key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 }, color: theme[themestate].text }}
                         >
-                            <TableCell>{index+1}</TableCell>
+                            <TableCell sx={{color:theme[themestate].text}}>{index+1}</TableCell>
                             {keys.map((key) => (
                                 key === 'position' ? (
                                     typeTable === 'shoes' || typeTable === 'clothes' ? (
-                                    <TableCell align="left">
+                                    <TableCell align="left" sx={{color:theme[themestate].text}}>
                                         {row[key].map((position) => (
                                             `${position.size}/${position.count}\n`
                                         ))}
                                     </TableCell>
                                     ) : (
-                                        <TableCell align="left">
+                                        <TableCell align="left" sx={{color:theme[themestate].text}}>
                                             {row[key].map((position) => (
                                                 `${position.x}*${position.y}/${position.count}\n`
                                             ))}
                                         </TableCell>
                                     )
                                 ) : key === 'materials' && typeTable === 'clothes' ? (
-                                    <TableCell align="left">
+                                    <TableCell align="left" sx={{color:theme[themestate].text}}>
                                         {[...row[key], ...row['userMaterials']].join(',\n')}
                                     </TableCell>
                                 ) : key === 'set' && typeTable === 'underwear' ? (
-                                        <TableCell align="left">
+                                        <TableCell align="left" sx={{color:theme[themestate].text}}>
                                             {row[key] ? "Да" : "Нет"}
                                         </TableCell>
                                     ) :
-                                    <TableCell align="left">{row[key]}</TableCell>
+                                    <TableCell align="left" sx={{color:theme[themestate].text}}>{row[key]}</TableCell>
                             ))}
                             <TableCell key={index} align="left">
                                 <IconButton  sx={{color:theme[themestate].editdelete}} onClick={() => {onClickEdit(index)}}>
