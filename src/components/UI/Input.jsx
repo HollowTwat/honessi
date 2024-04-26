@@ -32,7 +32,10 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
         value: value,
         onChange: handleChange,
         helperText: !isValid ? validateError[validationType] : helpText, onChangeValid,
-        props
+        props,
+        FormHelperTextProps: {
+            sx: { color: theme[themestate].textfaded }
+        }
     };
 
     return (
