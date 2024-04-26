@@ -28,7 +28,7 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
                             key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell>{index+1}</TableCell>
+                            <TableCell sx={{color:theme[themestate].text}}>{index+1}</TableCell>
                             {keys.map((key) => (
                                 key === 'position' ? (
                                     typeTable === 'shoes' || typeTable === 'clothes' ? (
@@ -56,12 +56,12 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
                                     <TableCell align="left">{row[key]}</TableCell>
                             ))}
                             <TableCell key={index} align="left">
-                                <IconButton onClick={() => {onClickEdit(index)}}>
+                                <IconButton  sx={{color:theme[themestate].editdelete}} onClick={() => {onClickEdit(index)}}>
                                     <ModeEdit/>
                                 </IconButton>
                             </TableCell>
                             <TableCell key={index} align="left">
-                                <IconButton onClick={() => {onClickDelete(index)}}>
+                                <IconButton sx={{color:theme[themestate].editdelete}} onClick={() => {onClickDelete(index)}}>
                                     <DeleteIcon/>
                                 </IconButton>
                             </TableCell>
