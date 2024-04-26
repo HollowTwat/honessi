@@ -19,7 +19,10 @@ const MultilineInput = ({label = '', helpText = '', initValue = [], onChange = (
         variant: "outlined",
         value: value.join(', '),
         onChange: handleChange,
-        helperText: helpText
+        helperText: helpText,
+        FormHelperTextProps: {
+            sx: { color: theme[themestate].textfaded }
+        }
     };
 
     return (
