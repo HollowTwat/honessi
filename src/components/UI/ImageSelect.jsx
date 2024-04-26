@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
+import {theme, themestate} from '../../styles/theme'; //new
 const ImageSelect = ({placeholder, value = '', images, onChange = () => {}}) => {
 
     const [image, setImage] = useState("");
@@ -21,11 +22,34 @@ const ImageSelect = ({placeholder, value = '', images, onChange = () => {}}) => 
             marginBottom: 10,
         }}>
             <FormControl fullWidth>
-                <InputLabel>{placeholder}</InputLabel>
+                <InputLabel sx={{ color: theme[themestate].textfaded }}>{placeholder}</InputLabel>
                 <Select
                     value={image}
                     label={placeholder}
                     onChange={handleChange}
+                    sx={{ color: theme[themestate].textfaded }}
+                    MenuProps={{
+                        PaperProps: {
+                            sx: {
+                                bgcolor: 'var(--tg-theme-bg-color)'//pink[50], // Sets the dropdown background color
+                            }
+                        },
+                        sx: {
+                            '&& .MuiMenuItem-root': { // Stronger specificity for default style
+                                color: theme[themestate].text,
+                                '&:hover': {
+                                    backgroundColor: theme[themestate].hover, // Background color for items on hover
+                                },
+                                '&.Mui-selected': {
+                                    backgroundColor: theme[themestate].hover, // Background color for the selected item
+                                    color: theme[themestate].text,
+                                    '&:hover': {
+                                        backgroundColor: theme[themestate].hover, // Background color for the selected item on hover
+                                    }
+                                }
+                            }
+                        },
+                    }}
                 >
                     {images.map((image, index) => (
                         <MenuItem key={index} value={image.label}>
