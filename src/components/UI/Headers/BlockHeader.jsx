@@ -1,6 +1,6 @@
 import React from 'react';
 import DivisionLine from "../DivisionLine";
-import {tg, useTelegram} from "../../../hooks/useTelegram";
+import {useTelegram} from "../../../hooks/useTelegram";
 
 const BlockHeader = ({text}) => {
     const { tg } = useTelegram();
