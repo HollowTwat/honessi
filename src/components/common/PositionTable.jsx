@@ -12,7 +12,7 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
 
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <Table sx={{ minWidth: 650, backgroundColor: 'var(--tg-theme-bg-color)' }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         {columnsName.map((columnName) => (
