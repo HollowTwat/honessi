@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Checkbox, FormControl, InputLabel, ListItemText, MenuItem, OutlinedInput, Select, Button } from "@mui/material";
-import { pink, purple, red } from '@mui/material/colors';
+
+import {theme, themestate} from '../../styles/theme'; //new
 
 const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = () => {}, onChangeValid = () => {} }) => {
     const [values, setValues] = useState(initValue);
@@ -32,10 +33,10 @@ const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = (
             marginBottom: 10,
         }}>
             <FormControl fullWidth>
-                <InputLabel sx={{ color: red.A700 }}>{label}</InputLabel>
+                <InputLabel sx={{ color: theme[themestate].textfaded }}>{label}</InputLabel>
                 <Select
                     multiple
-                    sx={{color: red.A700}}
+                    sx={{color: theme[themestate].text}}
                     value={values}
                     onChange={handleChange}
                     input={<OutlinedInput label={label} />}
@@ -48,14 +49,15 @@ const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = (
                         },
                         sx: {
                             '&& .MuiMenuItem-root': { // Stronger specificity for default style
-                                color: red.A700,
+                                color: theme[themestate].text,
                                 '&:hover': {
-                                    backgroundColor: purple[100], // Background color for items on hover
+                                    backgroundColor: theme[themestate].hover, // Background color for items on hover
                                 },
                                 '&.Mui-selected': {
-                                    backgroundColor: pink[100], // Background color for the selected item
+                                    backgroundColor: theme[themestate].hover, // Background color for the selected item
+                                    color: theme[themestate].text,
                                     '&:hover': {
-                                        backgroundColor: purple[100], // Background color for the selected item on hover
+                                        backgroundColor: theme[themestate].hover, // Background color for the selected item on hover
                                     }
                                 }
                             }
@@ -67,7 +69,7 @@ const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = (
                 >
                     {options.map((option) => (
                         <MenuItem key={option} value={option}>
-                            <Checkbox checked={values.indexOf(option) > -1} sx={{ color: pink[600], width: 'unset' }} />
+                            <Checkbox checked={values.indexOf(option) > -1} sx={{ color: theme[themestate].checkbox, width: 'unset' }} />
                             <ListItemText primary={option} />
                         </MenuItem>
                     ))}
