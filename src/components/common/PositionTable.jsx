@@ -18,7 +18,7 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
                 <TableHead>
                     <TableRow>
                         {columnsName.map((columnName) => (
-                            <TableCell align="left">{columnName}</TableCell>
+                            <TableCell align="left" sx={{color:theme[themestate].text}}>{columnName}</TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
