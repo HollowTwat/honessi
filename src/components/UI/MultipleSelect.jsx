@@ -74,7 +74,7 @@ const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = (
                         </MenuItem>
                     ))}
                 <MenuItem>
-                        <Button onClick={handleClose} variant="contained" color=theme[themestate].button>
+                        <Button onClick={handleClose} variant="contained" sx= color: theme[themestate].button>
                             Ok
                         </Button>
                     </MenuItem>
