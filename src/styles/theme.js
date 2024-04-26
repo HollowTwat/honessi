@@ -9,7 +9,7 @@ const lightTheme = {
     checkbox: 'silver',
     // body: 'violet',
     text: '#363537', // Dark gray text color
-    textfaded: '#DFDFDF',
+    textfaded: '#9F9F9F',
     toggleBorder: '#FFF',
     background: '#363537',
     editdelete: 'silver',
