@@ -6,6 +6,7 @@ const lightTheme = {
     body: '#FFFFFF', // White background
     button: '#808080', //#363537
     hover: 'silver',
+    checkbox: 'silver',
     // body: 'violet',
     text: '#363537', // Dark gray text color
     textfaded: '#DFDFDF',
@@ -18,6 +19,7 @@ const darkTheme = {
     body: '#363537', // Dark gray background
     button: '#363537',
     hover: 'silver',
+    checkbox: 'silver',
     // body: 'red',
     text: '#FAFAFA', // Very light gray text color
     textfaded: '#606060',
