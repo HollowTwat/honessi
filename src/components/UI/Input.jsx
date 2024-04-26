@@ -33,6 +33,19 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
         onChange: handleChange,
         helperText: !isValid ? validateError[validationType] : helpText, onChangeValid,
         props,
+        InputLabelProps: {
+            style: { color: 'pink' } // Force label color red
+        },
+        InputProps: {
+            sx: {
+                'input': {
+                    color: theme[themestate].text, // Apply to all input elements
+                },
+                "& .MuiInputBase-input.Mui-disabled": {
+                    WebkitTextFillColor: theme[themestate].textfaded,
+                  }
+            }
+        },
         FormHelperTextProps: {
             sx: { color: theme[themestate].textfaded }
         }
