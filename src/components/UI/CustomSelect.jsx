@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { red, pink } from '@mui/material/colors';
+
+import {theme, themestate} from '../../styles/theme'; //new
+
 
 const CustomSelect = ({
     label = '',
@@ -34,7 +36,7 @@ const CustomSelect = ({
                     value={internalValue}
                     label={label}
                     onChange={handleChange}
-                    sx={{color: red.A700}}
+                    sx={{color: theme[themestate].text}}
                     MenuProps={{
                         PaperProps: {
                             sx: {
@@ -43,17 +45,17 @@ const CustomSelect = ({
                         },
                         sx: {
                             '&& .MuiMenuItem-root': { // Stronger specificity for default style
-                                color: red.A700, // Text color for each item
+                                color: theme[themestate].text, // Text color for each item
                                 backgroundColor: 'transparent', // Override default background color
                                 '&:hover': {
-                                    backgroundColor: pink[100], // Background color for items on hover
+                                    backgroundColor: theme[themestate].hover, // Background color for items on hover
                                 },
                                 '&.Mui-selected': {
-                                    backgroundColor: pink[100], // Background color for the selected item
-                                    color: red.A700,
+                                    backgroundColor: theme[themestate].hover, // Background color for the selected item
+                                    color: theme[themestate].text,
                                 },
                                 '&.Mui-focusVisible': {
-                                    backgroundColor: pink[100], // Background color for the focused item
+                                    backgroundColor: theme[themestate].hover, // Background color for the focused item
                                 }
                             },
                         }
