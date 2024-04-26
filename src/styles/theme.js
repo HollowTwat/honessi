@@ -12,6 +12,7 @@ const lightTheme = {
     textfaded: '#DFDFDF',
     toggleBorder: '#FFF',
     background: '#363537',
+    editdelete: 'silver',
 };
 
 // Define the dark theme properties
@@ -25,6 +26,7 @@ const darkTheme = {
     textfaded: '#606060',
     toggleBorder: '#6B8096',
     background: '#999',
+    editdelete: 'silver',
 };
 
 // Export the themes
