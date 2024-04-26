@@ -31,7 +31,7 @@ const CustomSelect = ({
             marginBottom: 10,
         }}>
             <FormControl fullWidth>
-                <InputLabel sx={{ color: red.A700 }}>{label}</InputLabel>
+                <InputLabel sx={{ color: theme[themestate].textfaded }}>{label}</InputLabel>
                 <Select
                     value={internalValue}
                     label={label}
