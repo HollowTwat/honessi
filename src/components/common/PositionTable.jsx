@@ -26,9 +26,9 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
                     {values.map((row, index) => (
                         <TableRow
                             key={index}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 }, color: theme[themestate].text }}
                         >
-                            <TableCell sx={{color:theme[themestate].text}}>{index+1}</TableCell>
+                            <TableCell>{index+1}</TableCell>
                             {keys.map((key) => (
                                 key === 'position' ? (
                                     typeTable === 'shoes' || typeTable === 'clothes' ? (
