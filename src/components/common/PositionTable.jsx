@@ -5,14 +5,16 @@ import {ModeEdit} from "@mui/icons-material";
 import {columnsNames} from "../../constants/positionTable/ColumnsNames";
 import {keysFields} from "../../constants/positionTable/KeysFields";
 
+import {theme, themestate} from '../../styles/theme'; //new
+
 const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClickEdit = () => {}}) => {
 
     const keys = keysFields[typeTable]
     const columnsName = columnsNames[typeTable]
 
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650, backgroundColor: 'var(--tg-theme-bg-color)' }} aria-label="simple table">
+        <TableContainer component={Paper} sx={{backgroundColor: 'var(--tg-theme-bg-color)', color:theme[themestate].text}}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         {columnsName.map((columnName) => (
