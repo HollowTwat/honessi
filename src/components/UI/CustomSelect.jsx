@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { red, pink, purple } from '@mui/material/colors';
+import { red, pink } from '@mui/material/colors';
 
 const CustomSelect = ({
     label = '',
