@@ -48,7 +48,8 @@ const CustomSelect = ({
                         // },
                         // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
                         //     borderColor: 'grey', // Border color when disabled
-                        }}}
+                        // }
+                        }}
                     MenuProps={{
                         PaperProps: {
                             sx: {
