@@ -14,18 +14,18 @@ const PositionTable = ({typeTable = '', values, onClickDelete = () => {}, onClic
 
     return (
         <TableContainer component={Paper} sx={{backgroundColor: 'var(--tg-theme-bg-color)', color:theme[themestate].text,
-                                              '& .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: theme[themestate].fieldoutlinesNF // Default border color
-                                               },
-                                              '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: 'green', // Border color on hover
-                                               },
-                                              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: 'green', // Border color when focused
-                                               },
-                                              '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
-                                                    borderColor: 'grey', // Border color when disabled
-                                               }
+                                              // '& .MuiOutlinedInput-notchedOutline': {
+                                              //       borderColor: theme[themestate].fieldoutlinesNF // Default border color
+                                              //  },
+                                              // '&:hover .MuiOutlinedInput-notchedOutline': {
+                                              //       borderColor: 'green', // Border color on hover
+                                              //  },
+                                              // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                              //       borderColor: 'green', // Border color when focused
+                                              //  },
+                                              // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+                                              //       borderColor: 'grey', // Border color when disabled
+                                              //  }
                                                }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
