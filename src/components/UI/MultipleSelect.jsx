@@ -36,7 +36,20 @@ const MultipleSelect = ({ label = '', options = [], initValue = [], onChange = (
                 <InputLabel sx={{ color: theme[themestate].textfaded }}>{label}</InputLabel>
                 <Select
                     multiple
-                    sx={{color: theme[themestate].text}}
+                    sx={{color: theme[themestate].text,
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme[themestate].fieldoutlinesNF // Default border color
+                        },
+                        // '&:hover .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'green', // Border color on hover
+                        // },
+                        // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'green', // Border color when focused
+                        // },
+                        // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'grey', // Border color when disabled
+                        // }
+                        }}
                     value={values}
                     onChange={handleChange}
                     input={<OutlinedInput label={label} />}
