@@ -15,6 +15,7 @@ const lightTheme = {
     editdelete: 'silver',
     fieldoutlinesNF: 'black',
     fieldoutlinesF: 'blue',
+    fieldoutlinesD: 'gray',
 };
 
 // Define the dark theme properties
@@ -30,7 +31,8 @@ const darkTheme = {
     background: '#999',
     editdelete: 'silver',
     fieldoutlinesNF: 'white',
-    fieldoutlinesF: 'blue'
+    fieldoutlinesF: 'blue',
+    fieldoutlinesD: 'gray',
 };
 
 // Export the themes
