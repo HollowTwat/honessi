@@ -27,7 +27,20 @@ const ImageSelect = ({placeholder, value = '', images, onChange = () => {}}) => 
                     value={image}
                     label={placeholder}
                     onChange={handleChange}
-                    sx={{ color: theme[themestate].textfaded }}
+                    sx={{ color: theme[themestate].textfaded,
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme[themestate].fieldoutlinesNF // Default border color
+                        },
+                        // '&:hover .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'green', // Border color on hover
+                        // },
+                        // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'green', // Border color when focused
+                        // },
+                        // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'grey', // Border color when disabled
+                        // } 
+                        }}
                     MenuProps={{
                         PaperProps: {
                             sx: {
