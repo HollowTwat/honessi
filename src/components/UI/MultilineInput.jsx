@@ -28,6 +28,15 @@ const MultilineInput = ({label = '', helpText = '', initValue = [], onChange = (
                 '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: theme[themestate].fieldoutlinesNF, // Border color for unfocused states
                 },
+               //  '&:hover .MuiOutlinedInput-notchedOutline': {
+               //     borderColor: 'green', // Border color on hover
+               // },
+               // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+               //    borderColor: 'green', // Border color when focused
+               // },
+               // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+               //     borderColor: 'grey', // Border color when disabled
+               // }
             }
         }
     };
