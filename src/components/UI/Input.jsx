@@ -45,8 +45,17 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
                     WebkitTextFillColor: theme[themestate].textfaded,
                   },
                 '& .MuiOutlinedInput-notchedOutline': {
-                    borderColor: theme[themestate].fieldoutlinesNF, // Border color for unfocused states
-                },
+                            borderColor: theme[themestate].fieldoutlinesNF // Default border color
+                        },
+               //  '&:hover .MuiOutlinedInput-notchedOutline': {
+               //              borderColor: 'green', // Border color on hover
+               //          },
+               //  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+               //              borderColor: 'green', // Border color when focused
+               //          },
+               // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+               //              borderColor: 'grey', // Border color when disabled
+               //          }
             }
         },
         FormHelperTextProps: {
