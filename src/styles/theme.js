@@ -16,6 +16,7 @@ const lightTheme = {
     fieldoutlinesNF: 'black',
     fieldoutlinesF: 'blue',
     fieldoutlinesD: 'gray',
+    fieldoutlinesH: 'silver',
 };
 
 // Define the dark theme properties
@@ -33,6 +34,7 @@ const darkTheme = {
     fieldoutlinesNF: 'white',
     fieldoutlinesF: 'blue',
     fieldoutlinesD: 'gray',
+    fieldoutlinesH: 'silver',
 };
 
 // Export the themes
