@@ -22,6 +22,13 @@ const MultilineInput = ({label = '', helpText = '', initValue = [], onChange = (
         helperText: helpText,
         FormHelperTextProps: {
             sx: { color: theme[themestate].textfaded }
+        },
+        InputProps: {
+            sx: {
+                '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme[themestate].fieldoutlinesNF, // Border color for unfocused states
+                },
+            }
         }
     };
 
