@@ -53,9 +53,9 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
                //  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                //              borderColor: 'green', // Border color when focused
                //          },
-               // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
-               //              borderColor: 'grey', // Border color when disabled
-               //          }
+               '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme[themestate].fieldoutlinesD // Border color when disabled
+                        }
             }
         },
         FormHelperTextProps: {
