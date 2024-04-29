@@ -36,7 +36,19 @@ const CustomSelect = ({
                     value={internalValue}
                     label={label}
                     onChange={handleChange}
-                    sx={{color: theme[themestate].text}}
+                    sx={{color: theme[themestate].text,
+                        '& .MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme[themestate].fieldoutlinesNF // Default border color
+                        },
+                        // '&:hover .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'green', // Border color on hover
+                        // },
+                        // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'green', // Border color when focused
+                        // },
+                        // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: 'grey', // Border color when disabled
+                        }}}
                     MenuProps={{
                         PaperProps: {
                             sx: {
