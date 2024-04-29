@@ -43,7 +43,10 @@ const Input = ({label, value, onChangeValid = () => {}, validationType = 'defaul
                 },
                 "& .MuiInputBase-input.Mui-disabled": {
                     WebkitTextFillColor: theme[themestate].textfaded,
-                  }
+                  },
+                '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: theme[themestate].fieldoutlinesNF, // Border color for unfocused states
+                },
             }
         },
         FormHelperTextProps: {
