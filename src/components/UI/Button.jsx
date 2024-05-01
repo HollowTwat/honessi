@@ -15,8 +15,8 @@ import {theme, themestate} from '../../styles/theme'
 // theme = theme[this.state.themeMode]
 
 // const Button = ({background = mainYellow, textColor = 'black', ...props}) => {
-//const Button = ({background = theme[themestate].button, textColor = theme[themestate].text, ...props}) => {
-const Button = ({background = 'var(--tg-theme-button-color)', textColor = theme[themestate].text, ...props}) => {    
+const Button = ({background = theme[themestate].button, textColor = theme[themestate].text, ...props}) => {
+//const Button = ({background = 'var(--tg-theme-button-color)', textColor = theme[themestate].text, ...props}) => {    
 
     return (
         <button {...props} className={'button'} style={{backgroundColor: background, color: textColor, ...button}}/>
