@@ -40,8 +40,8 @@ const CustomSelect = ({
                         '& .MuiOutlinedInput-notchedOutline': {
                             borderColor: theme[themestate].fieldoutlinesNF // Default border color
                         },
-                        // '&:hover .MuiOutlinedInput-notchedOutline': {
-                        //     borderColor: 'green', // Border color on hover
+                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme[themestate].fieldoutlinesH, // Border color on hover
                         // },
                         // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                         //     borderColor: 'green', // Border color when focused
