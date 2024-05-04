@@ -31,12 +31,12 @@ const ImageSelect = ({placeholder, value = '', images, onChange = () => {}}) => 
                         '& .MuiOutlinedInput-notchedOutline': {
                             borderColor: theme[themestate].fieldoutlinesNF // Default border color
                         },
-                        // '&:hover .MuiOutlinedInput-notchedOutline': {
-                        //     borderColor: 'green', // Border color on hover
-                        // },
-                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: theme[themestate].fieldoutlinesH // Border color when focused
+                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                            borderColor: theme[themestate].fieldoutlinesH, // Border color on hover
                         },
+                        // '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        //     borderColor: theme[themestate].fieldoutlinesH // Border color when focused
+                        // },
                         // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
                         //     borderColor: 'grey', // Border color when disabled
                         // } 
