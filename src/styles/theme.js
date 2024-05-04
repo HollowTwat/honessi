@@ -26,15 +26,15 @@ const darkTheme = {
     hover: 'silver',
     checkbox: 'silver',
     // body: 'red',
-    text: '#FAFAFA', // Very light gray text color
+    text: '#AFAFAF', // Very light gray text color
     textfaded: '#606060',
     toggleBorder: '#6B8096',
     background: '#999',
     editdelete: 'silver',
-    fieldoutlinesNF: 'white',
+    fieldoutlinesNF: 'silver',
     fieldoutlinesF: 'blue',
     fieldoutlinesD: 'gray',
-    fieldoutlinesH: 'silver',
+    fieldoutlinesH: 'white',
 };
 
 // Export the themes
