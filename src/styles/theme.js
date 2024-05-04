@@ -26,7 +26,7 @@ const darkTheme = {
     hover: 'silver',
     checkbox: 'silver',
     // body: 'red',
-    text: '#AFAFAF', // Very light gray text color
+    text: '#e7ecf7', // Very light gray text color
     textfaded: '#606060',
     toggleBorder: '#6B8096',
     background: '#999',
