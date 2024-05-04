@@ -35,8 +35,8 @@ const ImageSelect = ({placeholder, value = '', images, onChange = () => {}}) => 
                         //     borderColor: 'green', // Border color on hover
                         // },
                         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: theme[themestate].fieldoutlinesH, // Border color when focused
-                        // },
+                            borderColor: theme[themestate].fieldoutlinesH // Border color when focused
+                        },
                         // '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
                         //     borderColor: 'grey', // Border color when disabled
                         // } 
