@@ -1,8 +1,15 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('https://fonts.gstatic.com/s/playfairdisplay/v22/nuFkD-vYSZviVYUb_rj3ij__anPXDTjYgFJh4OzWEO8I4kY.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     width: 100%;
+    font-family: 'Playfair Display', serif; /* Set Playfair Display as the default font */
 }
 
 #root {
