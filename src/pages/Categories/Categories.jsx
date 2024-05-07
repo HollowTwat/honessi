@@ -3,7 +3,7 @@ import { useTelegram } from "../../hooks/useTelegram";
 import { useNavigate } from "react-router-dom"
 import Button from "../../components/UI/Button";
 import {initOrder} from "../../initData/order/InitOrder";
-import {mainBlue} from "../../styles/colors";
+// import {mainBlue} from "../../styles/colors";                    //AD REMOVED
 
 const Categories = () => {
 
