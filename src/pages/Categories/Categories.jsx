@@ -83,7 +83,7 @@ const Categories = () => {
                 <Button onClick={() => {onClickCategory('orderClothes','/clothes')}}>Одежда</Button>
                 <Button onClick={() => {onClickCategory('orderUnderwear','/underwear')}}>Белье</Button>
                 <Button onClick={() => {onClickCategory('orderPerfume','/perfume')}}>Духи</Button>
-                <button
+{/*                 <button
                     style={{
                         background: mainBlue,
                         color: 'white',
@@ -105,7 +105,7 @@ const Categories = () => {
                     Хочешь такое же приложение?
                     <br />
                     Напиши мне
-                </button>
+                </button> */}
             </div>
         </div>
     );
