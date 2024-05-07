@@ -13,10 +13,10 @@ const lightTheme = {
     toggleBorder: '#FFF',
     background: '#363537',
     editdelete: 'silver',
-    fieldoutlinesNF: 'black',
+    fieldoutlinesNF: '#FCCF00',
     fieldoutlinesF: 'blue',
     fieldoutlinesD: 'gray',
-    fieldoutlinesH: 'silver',
+    fieldoutlinesH: 'FCF000',
 };
 
 // Define the dark theme properties
@@ -31,10 +31,10 @@ const darkTheme = {
     toggleBorder: '#6B8096',
     background: '#999',
     editdelete: 'silver',
-    fieldoutlinesNF: 'silver',
+    fieldoutlinesNF: '#FCCF00',
     fieldoutlinesF: 'blue',
     fieldoutlinesD: 'gray',
-    fieldoutlinesH: 'white',
+    fieldoutlinesH: 'FCF000',
 };
 
 // Export the themes
