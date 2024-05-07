@@ -11,7 +11,7 @@
 // export const secondaryBG = tgbutton2
 // export const buttontext = tgbuttontext
 // export const textcolor = tgtextcolor
-export const mainBlue = '#0d5ffe'
+export const mainBlue = '#FCB900'//'#0d5ffe'
 export const mainYellow = 'var(--tg-theme-button-color)'//'#b0c4de'//'#ffebcd'
 export const addOrEditPositionButton = '#0d5ffe'
 export const orderButton = '#00C600'
