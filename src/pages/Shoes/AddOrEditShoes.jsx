@@ -177,13 +177,13 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'color')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'color')}}
                 />
-                <WithBox
+{/*                 <WithBox
                     initState={position.withBox}
                     initValue={position.withBoxData}
                     onChangeState={(state)=>{handleDataUpdate(state, 'withBox')}}
                     onChangeValue={(value)=>{handleDataUpdate(value, 'withBoxData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'withBoxData')}}
-                />
+                /> */}
                 <CompositionShoesOrder
                     values={position.position}
                     setValue={(positions) => {updatePosition(positions)}}
