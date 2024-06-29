@@ -4,7 +4,7 @@ import Input from "../../components/UI/Input";
 import DivisionLine from "../../components/UI/DivisionLine";
 import CustomSelect from "../../components/UI/CustomSelect";
 import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
-import WithBox from "../../components/categories/shoes/WithBox/WithBox";
+// import WithBox from "../../components/categories/shoes/WithBox/WithBox";
 import CompositionShoesOrder from "../../components/categories/shoes/CompositionShoesOrder";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
