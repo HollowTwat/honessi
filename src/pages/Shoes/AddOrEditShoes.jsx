@@ -4,7 +4,7 @@ import Input from "../../components/UI/Input";
 import DivisionLine from "../../components/UI/DivisionLine";
 import CustomSelect from "../../components/UI/CustomSelect";
 import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
-// import WithBox from "../../components/categories/shoes/WithBox/WithBox";
+import WithBox from "../../components/categories/shoes/WithBox/WithBox";
 import CompositionShoesOrder from "../../components/categories/shoes/CompositionShoesOrder";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
@@ -177,13 +177,13 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'color')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'color')}}
                 />
-{/*                 <WithBox
+                <WithBox
                     initState={position.withBox}
                     initValue={position.withBoxData}
                     onChangeState={(state)=>{handleDataUpdate(state, 'withBox')}}
                     onChangeValue={(value)=>{handleDataUpdate(value, 'withBoxData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'withBoxData')}}
-                /> */}
+                />
                 <CompositionShoesOrder
                     values={position.position}
                     setValue={(positions) => {updatePosition(positions)}}
