@@ -31,7 +31,7 @@ const useServer = () => {
 
     const sendNewOrder = async (type, user, order) => {
         // const url = 'https://berryaudit.ru/api/TelegramHonessy/InputTest?input=type__'+type+'username__'+user?.username+'userid__'+user?.id.toString()+'_____'+JSON.stringify(order);
-        const url = 'https://webhook.site/b3ef360e-8da5-4816-8682-44c14c134621'; // https://honessi-production.up.railway.app/api/TelegramHonessy/IWanaParce
+        const url = 'https://honessi-production.up.railway.app/api/TelegramHonessy/IWanaParce'; //   https://webhook.site/b3ef360e-8da5-4816-8682-44c14c134621
         try {
             const response = await fetch(url, {
                 method: "POST",
