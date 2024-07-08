@@ -37,7 +37,7 @@ export const initShoesPositionValid = {
     article: false,
     shoesType: false,
     color: false,
-    withBoxData: false,
+    withBoxData: true,
     position: false,
     upperMaterial: false,
     liningMaterial: false,
