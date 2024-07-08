@@ -17,7 +17,7 @@ export const initShoesPosition = {
     article: '',
     shoesType: '',
     color: '',
-    withBox: false,
+    withBox: true,
     withBoxData: initWithBoxData,
     position: initCompositionShoesOrder,
     upperMaterial: '',
