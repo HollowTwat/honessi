@@ -1,27 +1,28 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
-import {formStyle} from "../../styles/form";
+import { formStyle } from "../../styles/form";
 import Input from "../../components/UI/Input";
 import CustomSelect from "../../components/UI/CustomSelect";
-import {clothesType} from "../../constants/clothes/ClothesType";
-import {clothesColor} from "../../constants/clothes/ClothesColor";
-import {useNavigate, useParams} from "react-router-dom";
-import {useLocalStorage} from "@uidotdev/usehooks";
-import {localStorageNames} from "../../constants/LocalStorageNames";
-import {initClothesPosition, initClothesPositionValid} from "../../initData/clothes/InitClothesPosition";
-import {useTelegram} from "../../hooks/useTelegram";
-import {addOrEditPositionButton, unActiveButton} from "../../styles/colors";
+import { clothesType } from "../../constants/clothes/ClothesType";
+import { clothesColor } from "../../constants/clothes/ClothesColor";
+import { useNavigate, useParams } from "react-router-dom";
+import { useLocalStorage } from "@uidotdev/usehooks";
+import { localStorageNames } from "../../constants/LocalStorageNames";
+import { initClothesPosition, initClothesPositionValid } from "../../initData/clothes/InitClothesPosition";
+import { useTelegram } from "../../hooks/useTelegram";
+import { addOrEditPositionButton, unActiveButton } from "../../styles/colors";
 import CompositionClothesOrder from "../../components/categories/clothes/CompositionClothesOrder";
 import DivisionLine from "../../components/UI/DivisionLine";
-import {countries} from "../../constants/Сountries";
+import { countries } from "../../constants/Сountries";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
 import MultipleSelect from "../../components/UI/MultipleSelect";
-import {clothesMaterial} from "../../constants/clothes/ClothesMaterial";
+import { clothesMaterial } from "../../constants/clothes/ClothesMaterial";
 import MultilineInput from "../../components/UI/MultilineInput";
-// import Button from "../../components/UI/Button";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
-import {sexClothes} from "../../constants/clothes/SexClothes";
+import { sexClothes } from "../../constants/clothes/SexClothes";
+import Button from "../../components/UI/Button";
+import useTNVED from "../../hooks/useTNVED";
 
 const AddOrEditClothes = () => {
 
@@ -30,6 +31,7 @@ const AddOrEditClothes = () => {
     const { tg } = useTelegram();
     const {editId} = useParams();
     const [isValid, setValid] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(false); // New state for button
     const [data, setData] = useLocalStorage(localStorageNames['clothes']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initClothesPosition);
     const [positionValid, setPositionValid] = useState(initClothesPositionValid);
@@ -68,6 +70,11 @@ const AddOrEditClothes = () => {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isValid])
+
+    useEffect(() => {
+        const isButtonEnabled = position.clothesType && position.materials && position.sex;
+        setButtonEnabled(isButtonEnabled);
+    }, [position]);
 
     tg.BackButton.onClick(() => {
         navigate("/clothes");
@@ -151,6 +158,10 @@ const AddOrEditClothes = () => {
 
         handleDataUpdate(positions, 'position');
         handleDataUpdate(totalCount, 'total');
+    }
+
+    const handleTNVEDClick = () => {
+        useTNVED(position.clothesType, position.materials, position.sex);
     }
 
     return (
@@ -245,7 +256,7 @@ const AddOrEditClothes = () => {
                     onChangeValue={(value) => {handleDataUpdate(value, 'permissiveDocumentationData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'permissiveDocumentationData')}}
                 />
-                {/*<Button onClick={helpButton}>help</Button>*/}
+                <Button onClick={handleTNVEDClick} disabled={!buttonEnabled}>Check TNVED</Button>
             </div>
         </div>
     );
