@@ -9,7 +9,7 @@ import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
 import {formStyle} from "../../styles/form";
 import Input from "../../components/UI/Input";
 import CustomSelect from "../../components/UI/CustomSelect";
-import Set from "../../components/categories/perfume/Set";
+// import Set from "../../components/categories/perfume/Set";
 import {countries} from "../../constants/Сountries";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
