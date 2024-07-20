@@ -185,13 +185,13 @@ const AddOrEditPerfume = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'perfumeType')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'perfumeType')}}
                 />
-                <Set
+{/*                 <Set
                     initState={position.set}
                     initValue={position.setData}
                     onChangeState={(state)=>{handleDataUpdate(state, 'set')}}
                     onChangeValue={(value)=>{handleDataUpdate(value, 'setData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'setData')}}
-                />
+                /> */}
                 <Input
                     label={"Кол-во"}
                     id = 'total1'
