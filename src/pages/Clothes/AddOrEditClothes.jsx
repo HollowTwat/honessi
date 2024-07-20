@@ -143,6 +143,13 @@ const AddOrEditClothes = () => {
         }
     }, [tnvedResult]);
 
+    // Styles for the button
+    const buttonStyle = {
+        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+        color: buttonEnabled ? 'black' : 'white',
+        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    };
+
     return (
         <div>
             <CategoryHeader text={editId ? "Редактирование" : "Добавление позиции"} />
@@ -235,7 +242,7 @@ const AddOrEditClothes = () => {
                     onChangeValue={(value) => { handleDataUpdate(value, 'permissiveDocumentationData') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'permissiveDocumentationData') }}
                 />
-                <Button onClick={handleTNVEDClick} disabled={!buttonEnabled}>Check TNVED</Button>
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
             </div>
         </div>
     );
