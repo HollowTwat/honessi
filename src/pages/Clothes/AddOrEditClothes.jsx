@@ -41,6 +41,7 @@ const AddOrEditClothes = () => {
       triggerTNVED ? position.sex : null
     );
 
+    // Only run this useEffect once on component mount
     useEffect(() => {
         window.scrollTo(0, 0);
         if (editId) {
@@ -51,7 +52,8 @@ const AddOrEditClothes = () => {
             }
             setPositionValid(updatedPositionValid);
         }
-    }, [editId, data.positions, positionValid]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         const isValid = Object.values(positionValid).every(value => value === true);
