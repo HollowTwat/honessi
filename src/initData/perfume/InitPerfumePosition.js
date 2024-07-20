@@ -32,7 +32,7 @@ export const initPerfumePositionValid = {
     packagingType: false,
     packagingMaterial: false,
     perfumeType: false,
-    setData: false,
+    setData: true,
     total: false,
     country: false,
     hsCode: false,
