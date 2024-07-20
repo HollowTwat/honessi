@@ -106,11 +106,10 @@ const AddOrEditClothes = () => {
         }));
     }
 
-    const handleValidUpdate = (valueOrEvent, name) => {
-        const value = valueOrEvent.target ? valueOrEvent.target.value : valueOrEvent;
+    const handleValidUpdate = (isValid, name) => {
         setPositionValid(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: isValid
         }));
     }
 
@@ -150,28 +149,28 @@ const AddOrEditClothes = () => {
                     label={"Товарный знак"}
                     value={position.trademark}
                     onChange={(e) => { handleDataUpdate(e, 'trademark') }}
-                    onChangeValid={(e) => { handleValidUpdate(e, 'trademark') }}
+                    onChangeValid={(isValid) => { handleValidUpdate(isValid, 'trademark') }}
                     helpText={"Не более 50 знаков"}
                 />
                 <Input
                     label={"Артикул"}
                     value={position.article}
                     onChange={(e) => { handleDataUpdate(e, 'article') }}
-                    onChangeValid={(e) => { handleValidUpdate(e, 'article') }}
+                    onChangeValid={(isValid) => { handleValidUpdate(isValid, 'article') }}
                     helpText={"Не более 50 знаков"}
                 />
                 <CustomSelect
                     label={"Вид товара"}
                     options={clothesType}
                     value={position.clothesType}
-                    onChange={(e) => { handleDataUpdate(e, 'clothesType') }}
+                    onChange={(value) => { handleDataUpdate(value, 'clothesType') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'clothesType') }}
                 />
                 <CustomSelect
                     label={"Цвет"}
                     options={clothesColor}
                     value={position.color}
-                    onChange={(e) => { handleDataUpdate(e, 'color') }}
+                    onChange={(value) => { handleDataUpdate(value, 'color') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'color') }}
                 />
                 <CompositionClothesOrder
@@ -190,34 +189,34 @@ const AddOrEditClothes = () => {
                     label={"Состав"}
                     options={clothesMaterial}
                     initValue={position.materials}
-                    onChange={(e) => { handleDataUpdate(e, 'materials') }}
+                    onChange={(value) => { handleDataUpdate(value, 'materials') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'materials') }}
                 />
                 <MultilineInput
                     label={"Введите свое"}
                     helpText={'Необходимо указывать материалы чепез запятую'}
-                    initValue={position.userMaterials} onChange={(e) => { handleDataUpdate(e, 'userMaterials') }}
+                    initValue={position.userMaterials} onChange={(value) => { handleDataUpdate(value, 'userMaterials') }}
                 />
                 <CustomSelect
                     label={"Пол"}
                     options={sexClothes}
                     value={position.sex}
-                    onChange={(e) => { handleDataUpdate(e, 'sex') }}
+                    onChange={(value) => { handleDataUpdate(value, 'sex') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'sex') }}
                 />
                 <CustomSelect
                     label={"Страна"}
                     options={countries}
                     value={position.country}
-                    onChange={(e) => { handleDataUpdate(e, 'country') }}
-                    onChangeValid={(isValid) => { handleValidUpdate(e, 'country') }}
+                    onChange={(value) => { handleDataUpdate(value, 'country') }}
+                    onChangeValid={(isValid) => { handleValidUpdate(isValid, 'country') }}
                 />
                 <Input
                     label={"Код ТНВЭД"}
                     value={position.hsCode}
                     validationType={'hsCode'}
                     onChange={(e) => { handleDataUpdate(e, 'hsCode') }}
-                    onChangeValid={(e) => { handleValidUpdate(e, 'hsCode') }}
+                    onChangeValid={(isValid) => { handleValidUpdate(isValid, 'hsCode') }}
                 />
                 <HsCodeHelp type={'clothes'} />
                 <ArticlePrice
