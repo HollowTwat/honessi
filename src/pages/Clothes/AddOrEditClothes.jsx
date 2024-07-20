@@ -71,7 +71,7 @@ const AddOrEditClothes = () => {
     }, [isValid, editId, tg.MainButton]);
 
     useEffect(() => {
-        const isButtonEnabled = position.clothesType && position.materials && position.sex;
+        const isButtonEnabled = position.clothesType && position.materials.length > 0 && position.sex;
         setButtonEnabled(isButtonEnabled);
     }, [position]);
 
