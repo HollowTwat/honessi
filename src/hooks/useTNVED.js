@@ -31,7 +31,7 @@ const useFetchTNVEDData = () => {
             const data = await response.json();
 
             return {
-                tnved: data.tnved
+                tnved: '321'//data.tnved
             }
         } catch (error) {
             setError(error);
