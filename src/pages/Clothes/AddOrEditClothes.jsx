@@ -34,12 +34,11 @@ const AddOrEditClothes = () => {
     const [position, setPosition] = useState(editId ? data.positions[editId] : initClothesPosition);
     const [positionValid, setPositionValid] = useState(initClothesPositionValid);
     const [triggerTNVED, setTriggerTNVED] = useState(false);
-    const {getTnvedInfo} = useTNVED();
 
     const tnvedResult = useTNVED(
-      triggerTNVED ? position.clothesType : null,
-      triggerTNVED ? position.materials : null,
-      triggerTNVED ? position.sex : null
+        triggerTNVED ? position.clothesType : null,
+        triggerTNVED ? position.materials : null,
+        triggerTNVED ? position.sex : null
     );
 
     // Only run this useEffect once on component mount
@@ -55,7 +54,6 @@ const AddOrEditClothes = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
 
     useEffect(() => {
         const isValid = Object.values(positionValid).every(value => value === true);
@@ -134,23 +132,18 @@ const AddOrEditClothes = () => {
         handleDataUpdate(totalCount, 'total');
     }
 
-
-
-
     const handleTNVEDClick = () => {
         setTriggerTNVED(true);
-        const type = position.clothesType
-        const material = position.materials
-        const sex = position.sex
-        const tnved = getTnvedInfo(type, material, sex)
-
-        handleDataUpdate(tnved, 'hsCode')
     }
 
     useEffect(() => {
         if (tnvedResult) {
             console.log("TNVED Result: ", tnvedResult);
-            // handle the result as needed, e.g., display it or update the state
+            setPosition(prevState => ({
+                ...prevState,
+                hsCode: tnvedResult
+            }));
+            setTriggerTNVED(false); // Reset the trigger
         }
     }, [tnvedResult]);
 
@@ -253,7 +246,7 @@ const AddOrEditClothes = () => {
                     onChangeValue={(value) => { handleDataUpdate(value, 'permissiveDocumentationData') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'permissiveDocumentationData') }}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle}>Check TNVED</Button>
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
             </div>
         </div>
     );
