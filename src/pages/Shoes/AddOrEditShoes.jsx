@@ -19,7 +19,7 @@ import {shoesBottomMaterial} from "../../constants/shoes/ShoesBottomMaterial";
 import {sexShoes} from "../../constants/shoes/SexShoes";
 import {countries} from "../../constants/Сountries";
 
-// import Button from "../../components/UI/Button";
+import Button from "../../components/UI/Button";
 import {initShoesPosition, initShoesPositionValid} from "../../initData/shoes/InitShoesPosition";
 import {formStyle} from "../../styles/form";
 import {addOrEditPositionButton, unActiveButton} from "../../styles/colors";
@@ -64,6 +64,12 @@ const AddOrEditShoes = () => {
             setTriggerTNVED(false); // Reset the trigger
         }
     }, [tnvedResult]);
+
+    const buttonStyle = {
+        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+        color: buttonEnabled ? 'black' : 'white',
+        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    };
 
     const navigate = useNavigate();
     const { tg } = useTelegram();
