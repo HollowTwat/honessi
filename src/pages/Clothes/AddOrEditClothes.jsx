@@ -134,9 +134,14 @@ const AddOrEditClothes = () => {
         handleDataUpdate(totalCount, 'total');
     }
 
+
+
+
     const handleTNVEDClick = () => {
         setTriggerTNVED(true);
-
+        const type = position.clothesType
+        const material = position.materials
+        const sex = position.sex
         const tnved = getTnvedInfo(type, material, sex)
 
         handleDataUpdate(tnved, 'hsCode')
