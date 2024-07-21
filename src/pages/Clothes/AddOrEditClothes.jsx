@@ -34,6 +34,7 @@ const AddOrEditClothes = () => {
     const [position, setPosition] = useState(editId ? data.positions[editId] : initClothesPosition);
     const [positionValid, setPositionValid] = useState(initClothesPositionValid);
     const [triggerTNVED, setTriggerTNVED] = useState(false);
+    const {getTnvedInfo} = useTNVED();
 
     const tnvedResult = useTNVED(
       triggerTNVED ? position.clothesType : null,
@@ -54,6 +55,7 @@ const AddOrEditClothes = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
 
     useEffect(() => {
         const isValid = Object.values(positionValid).every(value => value === true);
@@ -134,6 +136,10 @@ const AddOrEditClothes = () => {
 
     const handleTNVEDClick = () => {
         setTriggerTNVED(true);
+
+        const tnved = getTnvedInfo(type, material, sex)
+
+        handleDataUpdate(tnved, 'hsCode')
     }
 
     useEffect(() => {
