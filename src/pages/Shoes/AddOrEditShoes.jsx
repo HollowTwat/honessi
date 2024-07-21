@@ -4,7 +4,7 @@ import Input from "../../components/UI/Input";
 import DivisionLine from "../../components/UI/DivisionLine";
 import CustomSelect from "../../components/UI/CustomSelect";
 import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
-// import WithBox from "../../components/categories/shoes/WithBox/WithBox";
+import WithBox from "../../components/categories/shoes/WithBox/WithBox";
 import CompositionShoesOrder from "../../components/categories/shoes/CompositionShoesOrder";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
@@ -26,6 +26,9 @@ import {addOrEditPositionButton, unActiveButton} from "../../styles/colors";
 import {localStorageNames} from "../../constants/LocalStorageNames";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
 
+import useTNVED from "../../hooks/useTNVED";
+
+
 const AddOrEditShoes = () => {
 
     const {editId} = useParams();
@@ -33,6 +36,35 @@ const AddOrEditShoes = () => {
     const [data, setData] = useLocalStorage(localStorageNames['shoes']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initShoesPosition);
     const [positionValid, setPositionValid] = useState(initShoesPositionValid);
+    const [triggerTNVED, setTriggerTNVED] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(false);
+
+    const tnvedResult = useTNVED(
+        triggerTNVED ? position.shoesType : null,
+        triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial] : null,
+        triggerTNVED ? position.sex : null
+    );
+
+    useEffect(() => {
+        const isButtonEnabled = position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex;
+        setButtonEnabled(isButtonEnabled);
+    }, [position]);
+
+
+    const handleTNVEDClick = () => {
+        setTriggerTNVED(true);
+    }
+
+    useEffect(() => {
+        if (tnvedResult) {
+            console.log("TNVED Result: ", tnvedResult);
+            setPosition(prevState => ({
+                ...prevState,
+                hsCode: tnvedResult
+            }));
+            setTriggerTNVED(false); // Reset the trigger
+        }
+    }, [tnvedResult]);
 
 
     const navigate = useNavigate();
@@ -133,17 +165,16 @@ const AddOrEditShoes = () => {
             }
             return accumulator
         }, 0);
-
+        if (withBox) {
+            totalCount = totalCount*(withBoxData)
+        }
         if (totalCount === 0) {
             totalCount = ''
         }
+        
 
         handleDataUpdate(positions, 'position');
-        // handleDataUpdate(totalCount, 'total');
-        const boxdata = Number(position.withBoxData.countBox)
-        if (boxdata !== 0) {
-            handleDataUpdate(totalCount*boxdata, 'total');
-        } else {handleDataUpdate(totalCount, 'total');}
+        handleDataUpdate(totalCount, 'total');
     }
 
     return (
@@ -177,13 +208,13 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'color')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'color')}}
                 />
-{/*                 <WithBox
+                <WithBox
                     initState={position.withBox}
                     initValue={position.withBoxData}
                     onChangeState={(state)=>{handleDataUpdate(state, 'withBox')}}
                     onChangeValue={(value)=>{handleDataUpdate(value, 'withBoxData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'withBoxData')}}
-                /> */}
+                />
                 <CompositionShoesOrder
                     values={position.position}
                     setValue={(positions) => {updatePosition(positions)}}
@@ -239,6 +270,7 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
                 <HsCodeHelp type={'shoes'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
@@ -254,7 +286,6 @@ const AddOrEditShoes = () => {
                     onChangeValue={(value)=>{handleDataUpdate(value, 'permissiveDocumentationData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'permissiveDocumentationData')}}
                 />
-                {/*<Button onClick={addPosition}>help</Button>*/}
             </div>
         </div>
     );
