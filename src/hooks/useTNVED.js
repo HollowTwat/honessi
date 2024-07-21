@@ -17,7 +17,8 @@ const useTNVED = (clothesType, materials, sex) => {
                     "Accept": "application/json",
                 }
         });
-        setHsCode(response); // Static value for debugging
+        const data = await response.text()
+        setHsCode(data); // Static value for debugging // Static value for debugging
       }
     };
 
