@@ -231,6 +231,7 @@ const AddOrEditClothes = () => {
                     onChange={(e) => { handleDataUpdate(e, 'hsCode') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'hsCode') }}
                 />
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
                 <HsCodeHelp type={'clothes'} />
                 <ArticlePrice
                     initState={position.articlePrice}
@@ -246,7 +247,7 @@ const AddOrEditClothes = () => {
                     onChangeValue={(value) => { handleDataUpdate(value, 'permissiveDocumentationData') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'permissiveDocumentationData') }}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
+                
             </div>
         </div>
     );
