@@ -242,7 +242,7 @@ const AddOrEditClothes = () => {
                     onChangeValue={(value) => { handleDataUpdate(value, 'permissiveDocumentationData') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'permissiveDocumentationData') }}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
+                <Button onClick={handleTNVEDClick} style={buttonStyle}>Check TNVED</Button>
             </div>
         </div>
     );
