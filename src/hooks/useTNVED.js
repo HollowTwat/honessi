@@ -18,7 +18,8 @@ const useTNVED = (clothesType, materials, sex) => {
                 }
         });
         const data = await response.text()
-        setHsCode(data); // Static value for debugging // Static value for debugging
+        const strippedData = data.replace(/"/g, '');
+        setHsCode(strippedData); // Static value for debugging // Static value for debugging
       }
     };
 
