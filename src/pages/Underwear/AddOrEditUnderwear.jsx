@@ -36,12 +36,12 @@ const AddOrEditUnderwear = () => {
 
     const tnvedResult = useTNVED(
         triggerTNVED ? position.underwearType  : null,
-        triggerTNVED ? position.liningMaterial : null,
+        triggerTNVED ? position.textileType : null,
         ""
     );
 
     useEffect(() => {
-        const isButtonEnabled = position.underwearType  && position.liningMaterial;
+        const isButtonEnabled = position.underwearType  && position.textileType;
         setButtonEnabled(isButtonEnabled);
     }, [position]);
 
