@@ -1,22 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 const useTNVED = (clothesType, materials, sex) => {
   const [hsCode, setHsCode] = useState(null);
 
-  useEffect(() => {
-    const fetchHsCode = async () => {
-      if (clothesType && materials && sex) {
-        // Simulated delay to mimic an API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setHsCode('321');
-      }
-    };
+ 
+  const fetchHsCode = async () => {
+    if (clothesType && materials && sex) {
+       // Simulated delay to mimic an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setHsCode('321');
+    }
+  };
 
-    fetchHsCode();
-  }, [clothesType, materials, sex]);
+  fetchHsCode();
+}, [clothesType, materials, sex]);
 
-  return hsCode;
-};
+return hsCode;
 
 export default useTNVED;
 
