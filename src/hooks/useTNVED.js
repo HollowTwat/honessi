@@ -2,13 +2,24 @@ import { useState, useEffect } from 'react';
 
 const useTNVED = (clothesType, materials, sex) => {
   const [hsCode, setHsCode] = useState(null);
+  const baseUrl = "https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved";
+
+
+   const url = `${baseUrl}?input=${clothesType}${materials}${sex}`
 
   useEffect(() => {
     const fetchHsCode = async () => {
       if (clothesType && materials && sex) {
         // Simulate a delay to mimic an API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setHsCode('321'); // Static value for debugging
+        const response = await fetch(url, {
+            method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                }
+        });
+        setHsCode(response); // Static value for debugging
       }
     };
 
