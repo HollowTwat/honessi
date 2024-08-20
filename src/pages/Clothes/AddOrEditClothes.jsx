@@ -29,7 +29,7 @@ const AddOrEditClothes = () => {
     const { tg } = useTelegram();
     const { editId } = useParams();
     const [isValid, setValid] = useState(false);
-    const [buttonEnabled, setButtonEnabled] = useState(false); // New state for button
+    // const [buttonEnabled, setButtonEnabled] = useState(false); // New state for button
     const [data, setData] = useLocalStorage(localStorageNames['clothes']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initClothesPosition);
     const [positionValid, setPositionValid] = useState(initClothesPositionValid);
