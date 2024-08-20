@@ -5,23 +5,18 @@ import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
 import {error1} from "../../styles/colors";
 import {formStyle} from "../../styles/form";
 import Button from "../../components/UI/Button";
-//new
-import {useLocalStorage} from "@uidotdev/usehooks";
-// import useServer from "../../hooks/useServer";
-import {localStorageNames} from "../../constants/LocalStorageNames";
-import {initOrder} from "../../initData/order/InitOrder";
-
 
 const OrderError = () => {
 
     const navigate = useNavigate();
-    const {tg} = useTelegram();
-    
+    const { tg } = useTelegram();
+
     useEffect(() => {
 
         window.scrollTo(0, 0);
         tg.BackButton.hide();
         tg.MainButton.hide()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
