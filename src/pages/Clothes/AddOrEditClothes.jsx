@@ -21,8 +21,8 @@ import { clothesMaterial } from "../../constants/clothes/ClothesMaterial";
 import MultilineInput from "../../components/UI/MultilineInput";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
 import { sexClothes } from "../../constants/clothes/SexClothes";
-import Button from "../../components/UI/Button";
-import useTNVED from "../../hooks/useTNVED"; // Import the custom hook
+// import Button from "../../components/UI/Button";
+// import useTNVED from "../../hooks/useTNVED"; // Import the custom hook
 
 const AddOrEditClothes = () => {
     const navigate = useNavigate();
@@ -33,13 +33,13 @@ const AddOrEditClothes = () => {
     const [data, setData] = useLocalStorage(localStorageNames['clothes']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initClothesPosition);
     const [positionValid, setPositionValid] = useState(initClothesPositionValid);
-    const [triggerTNVED, setTriggerTNVED] = useState(false);
+    // const [triggerTNVED, setTriggerTNVED] = useState(false);
 
-    const tnvedResult = useTNVED(
-        triggerTNVED ? position.clothesType : null,
-        triggerTNVED ? position.materials : null,
-        triggerTNVED ? position.sex : null
-    );
+    // const tnvedResult = useTNVED(
+    //     triggerTNVED ? position.clothesType : null,
+    //     triggerTNVED ? position.materials : null,
+    //     triggerTNVED ? position.sex : null
+    // );
 
     // Only run this useEffect once on component mount
     useEffect(() => {
@@ -70,10 +70,10 @@ const AddOrEditClothes = () => {
         })
     }, [isValid, editId, tg.MainButton]);
 
-    useEffect(() => {
-        const isButtonEnabled = position.clothesType && position.materials.length > 0 && position.sex;
-        setButtonEnabled(isButtonEnabled);
-    }, [position]);
+    // useEffect(() => {
+    //     const isButtonEnabled = position.clothesType && position.materials.length > 0 && position.sex;
+    //     setButtonEnabled(isButtonEnabled);
+    // }, [position]);
 
     tg.BackButton.onClick(() => {
         navigate("/clothes");
@@ -132,27 +132,27 @@ const AddOrEditClothes = () => {
         handleDataUpdate(totalCount, 'total');
     }
 
-    const handleTNVEDClick = () => {
-        setTriggerTNVED(true);
-    }
+    // const handleTNVEDClick = () => {
+    //     setTriggerTNVED(true);
+    // }
 
-    useEffect(() => {
-        if (tnvedResult) {
-            console.log("TNVED Result: ", tnvedResult);
-            setPosition(prevState => ({
-                ...prevState,
-                hsCode: tnvedResult
-            }));
-            setTriggerTNVED(false); // Reset the trigger
-        }
-    }, [tnvedResult]);
+    // useEffect(() => {
+    //     if (tnvedResult) {
+    //         console.log("TNVED Result: ", tnvedResult);
+    //         setPosition(prevState => ({
+    //             ...prevState,
+    //             hsCode: tnvedResult
+    //         }));
+    //         setTriggerTNVED(false); // Reset the trigger
+    //     }
+    // }, [tnvedResult]);
 
     // Styles for the button
-    const buttonStyle = {
-        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-        color: buttonEnabled ? 'black' : 'white',
-        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
-    };
+    // const buttonStyle = {
+    //     backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+    //     color: buttonEnabled ? 'black' : 'white',
+    //     cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    // };
 
     return (
         <div>
@@ -231,7 +231,7 @@ const AddOrEditClothes = () => {
                     onChange={(e) => { handleDataUpdate(e, 'hsCode') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'hsCode') }}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
+{/*                 <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button> */}
                 <HsCodeHelp type={'clothes'} />
                 <ArticlePrice
                     initState={position.articlePrice}
