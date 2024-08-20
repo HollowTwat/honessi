@@ -65,11 +65,11 @@ const AddOrEditShoes = () => {
     //     }
     // }, [tnvedResult]);
 
-    const buttonStyle = {
-        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-        color: buttonEnabled ? 'black' : 'white',
-        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
-    };
+    // const buttonStyle = {
+    //     backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+    //     color: buttonEnabled ? 'black' : 'white',
+    //     cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    // };
 
     const navigate = useNavigate();
     const { tg } = useTelegram();
