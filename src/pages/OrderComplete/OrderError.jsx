@@ -15,21 +15,13 @@ import {initOrder} from "../../initData/order/InitOrder";
 const OrderError = () => {
 
     const navigate = useNavigate();
-    const { tg, user } = useTelegram();
-    //new
-    // const { error } = useServer();
-    const [data] = useLocalStorage(localStorageNames['clothes'], initOrder)
+    const {tg} = useTelegram();
     
-    // const handleDownload = () =>{
-    //     savejson('clothes', user, data);
-    // }
-
     useEffect(() => {
 
         window.scrollTo(0, 0);
         tg.BackButton.hide();
         tg.MainButton.hide()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
