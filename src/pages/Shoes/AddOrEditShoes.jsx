@@ -19,13 +19,13 @@ import {shoesBottomMaterial} from "../../constants/shoes/ShoesBottomMaterial";
 import {sexShoes} from "../../constants/shoes/SexShoes";
 import {countries} from "../../constants/Сountries";
 
-// import Button from "../../components/UI/Button";
+import Button from "../../components/UI/Button";
 import {initShoesPosition, initShoesPositionValid} from "../../initData/shoes/InitShoesPosition";
 import {formStyle} from "../../styles/form";
 import {addOrEditPositionButton, unActiveButton} from "../../styles/colors";
 import {localStorageNames} from "../../constants/LocalStorageNames";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
-// import useTNVED from "../../hooks/useTNVED";
+import useTNVED from "../../hooks/useTNVED";
 
 
 const AddOrEditShoes = () => {
@@ -35,41 +35,41 @@ const AddOrEditShoes = () => {
     const [data, setData] = useLocalStorage(localStorageNames['shoes']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initShoesPosition);
     const [positionValid, setPositionValid] = useState(initShoesPositionValid);
-    // const [triggerTNVED, setTriggerTNVED] = useState(false);
-    // const [buttonEnabled, setButtonEnabled] = useState(false);
+    const [triggerTNVED, setTriggerTNVED] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(false);
 
-    // const tnvedResult = useTNVED(
-    //     triggerTNVED ? position.shoesType : null,
-    //     triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial] : null,
-    //     triggerTNVED ? position.sex : null
-    // );
+    const tnvedResult = useTNVED(
+        triggerTNVED ? position.shoesType : null,
+        triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial] : null,
+        triggerTNVED ? position.sex : null
+    );
 
-    // useEffect(() => {
-    //     const isButtonEnabled = position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex;
-    //     setButtonEnabled(isButtonEnabled);
-    // }, [position]);
+    useEffect(() => {
+        const isButtonEnabled = position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex;
+        setButtonEnabled(isButtonEnabled);
+    }, [position]);
 
 
-    // const handleTNVEDClick = () => {
-    //     setTriggerTNVED(true);
-    // }
+    const handleTNVEDClick = () => {
+        setTriggerTNVED(true);
+    }
 
-    // useEffect(() => {
-    //     if (tnvedResult) {
-    //         console.log("TNVED Result: ", tnvedResult);
-    //         setPosition(prevState => ({
-    //             ...prevState,
-    //             hsCode: tnvedResult
-    //         }));
-    //         setTriggerTNVED(false); // Reset the trigger
-    //     }
-    // }, [tnvedResult]);
+    useEffect(() => {
+        if (tnvedResult) {
+            console.log("TNVED Result: ", tnvedResult);
+            setPosition(prevState => ({
+                ...prevState,
+                hsCode: tnvedResult
+            }));
+            setTriggerTNVED(false); // Reset the trigger
+        }
+    }, [tnvedResult]);
 
-    // const buttonStyle = {
-    //     backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-    //     color: buttonEnabled ? 'black' : 'white',
-    //     cursor: buttonEnabled ? 'pointer' : 'not-allowed'
-    // };
+    const buttonStyle = {
+        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+        color: buttonEnabled ? 'black' : 'white',
+        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    };
 
     const navigate = useNavigate();
     const { tg } = useTelegram();
@@ -275,7 +275,7 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
-{/*                 <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button> */}
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
                 <HsCodeHelp type={'shoes'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
