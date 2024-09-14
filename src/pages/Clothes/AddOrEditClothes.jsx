@@ -147,7 +147,7 @@ const AddOrEditClothes = () => {
         }
     }, [tnvedResult]);
 
-    Styles for the button
+    // Styles for the button
     const buttonStyle = {
         backgroundColor: buttonEnabled ? 'yellow' : 'grey',
         color: buttonEnabled ? 'black' : 'white',
