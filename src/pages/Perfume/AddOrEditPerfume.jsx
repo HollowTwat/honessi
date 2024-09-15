@@ -39,7 +39,7 @@ const AddOrEditPerfume = () => {
 
 const tnvedResult = useTNVED(
     triggerTNVED ? position.perfumeType : null,
-    triggerTNVED ? "" : null,
+    triggerTNVED ? [""] : null,
     triggerTNVED ? [""] : null
 );
 
