@@ -58,7 +58,7 @@ const AddOrEditClothes = () => {
     useEffect(() => {
         const isValid = Object.values(positionValid).every(value => value === true);
         setValid(isValid)
-    }, [positionValid]);
+    }, [positionValid, position.hsCode]);
 
     useEffect(() => {
         tg.MainButton.setParams({
@@ -142,6 +142,10 @@ const AddOrEditClothes = () => {
             setPosition(prevState => ({
                 ...prevState,
                 hsCode: tnvedResult
+            }));
+            setPositionValid(prevState => ({
+                ...prevState,
+                hsCode: true // Mark hsCode as valid
             }));
             setTriggerTNVED(false); // Reset the trigger
         }
