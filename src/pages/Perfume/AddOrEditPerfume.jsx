@@ -19,6 +19,8 @@ import {packagingType} from "../../constants/perfume/packagingType";
 import {packagingMaterial} from "../../constants/perfume/packagingMaterial";
 import {perfumeType} from "../../constants/perfume/perfumeType";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
+import Button from "../../components/UI/Button";
+import useTNVED from "../../hooks/useTNVED";
 
 const AddOrEditPerfume = () => {
 
@@ -30,6 +32,42 @@ const AddOrEditPerfume = () => {
     const [data, setData] = useLocalStorage(localStorageNames['perfume']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initPerfumePosition);
     const [positionValid, setPositionValid] = useState(initPerfumePositionValid);
+    const [buttonEnabled, setButtonEnabled] = useState(false);
+    const [triggerTNVED, setTriggerTNVED] = useState(false);
+
+
+
+const tnvedResult = useTNVED(
+    triggerTNVED ? position.perfumeType : null,
+    triggerTNVED ? "" : null,
+    triggerTNVED ? [""] : null
+);
+
+useEffect(() => {
+    const isButtonEnabled = position.perfumeType;
+    setButtonEnabled(isButtonEnabled);
+}, [position]);
+
+const handleTNVEDClick = () => {
+    setTriggerTNVED(true);
+}
+
+useEffect(() => {
+    if (tnvedResult) {
+        console.log("TNVED Result: ", tnvedResult);
+        setPosition(prevState => ({
+            ...prevState,
+            hsCode: tnvedResult
+        }));
+        setTriggerTNVED(false); // Reset the trigger
+    }
+}, [tnvedResult]);
+
+const buttonStyle = {
+    backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+    color: buttonEnabled ? 'black' : 'white',
+    cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+};
 
     useEffect(() => {
 
@@ -219,6 +257,7 @@ const AddOrEditPerfume = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
                 <HsCodeHelp type={'perfume'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
