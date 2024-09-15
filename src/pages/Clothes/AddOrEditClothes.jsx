@@ -71,7 +71,7 @@ const AddOrEditClothes = () => {
     }, [isValid, editId, tg.MainButton]);
 
     useEffect(() => {
-        const isButtonEnabled = position.clothesType && position.materials.length > 0 && position.sex;
+        const isButtonEnabled = !!position.clothesType && position.materials.length > 0 && position.sex;
         setButtonEnabled(isButtonEnabled);
     }, [position]);
 
@@ -153,9 +153,10 @@ const AddOrEditClothes = () => {
 
     // Styles for the button
     const buttonStyle = {
-        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-        color: buttonEnabled ? 'black' : 'white',
-        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+        backgroundColor: 'yellow',
+        color: 'black',
+        cursor: 'pointer',
+        transition: 'opacity 0.3s ease-in-out', // Optional: smooth appearance
     };
 
     return (
@@ -235,7 +236,14 @@ const AddOrEditClothes = () => {
                     onChange={(e) => { handleDataUpdate(e, 'hsCode') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'hsCode') }}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
+                {buttonEnabled && (
+                <Button 
+                    onClick={handleTNVEDClick} 
+                    style={buttonStyle}
+                >
+                    Подобрать код ТНВЭД
+                </Button>
+                )}
                 <HsCodeHelp type={'clothes'} />
                 <ArticlePrice
                     initState={position.articlePrice}
