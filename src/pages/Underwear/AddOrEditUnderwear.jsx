@@ -4,7 +4,6 @@ import {countries} from "../../constants/Сountries";
 import Input from "../../components/UI/Input";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
-import Button from "../../components/UI/Button";
 import Set from "../../components/categories/perfume/Set";
 import {useNavigate, useParams} from "react-router-dom";
 import {useLocalStorage} from "@uidotdev/usehooks";
