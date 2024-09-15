@@ -275,7 +275,7 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button>
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
                 <HsCodeHelp type={'shoes'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
