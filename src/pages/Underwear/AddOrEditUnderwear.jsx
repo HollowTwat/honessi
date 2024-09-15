@@ -36,7 +36,7 @@ const AddOrEditUnderwear = () => {
     const tnvedResult = useTNVED(
         triggerTNVED ? position.underwearType  : null,
         triggerTNVED ? position.textileType : null,
-        // ""
+        triggerTNVED ? [""] : null
     );
 
     useEffect(() => {
