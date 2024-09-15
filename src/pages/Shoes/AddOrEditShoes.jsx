@@ -45,7 +45,7 @@ const AddOrEditShoes = () => {
     );
 
     useEffect(() => {
-        const isButtonEnabled = position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex;
+        const isButtonEnabled = !!position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex;
         setButtonEnabled(isButtonEnabled);
     }, [position]);
 
@@ -70,9 +70,10 @@ const AddOrEditShoes = () => {
     }, [tnvedResult]);
 
     const buttonStyle = {
-        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-        color: buttonEnabled ? 'black' : 'white',
-        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+        backgroundColor: 'yellow',
+        color: 'black',
+        cursor: 'pointer',
+        transition: 'opacity 0.3s ease-in-out', // Optional: smooth appearance
     };
 
     const navigate = useNavigate();
@@ -279,7 +280,14 @@ const AddOrEditShoes = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
+                {buttonEnabled && (
+                <Button 
+                    onClick={handleTNVEDClick} 
+                    style={buttonStyle}
+                >
+                    Подобрать код ТНВЭД
+                </Button>
+                )}
                 <HsCodeHelp type={'shoes'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
