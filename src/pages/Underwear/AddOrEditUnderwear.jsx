@@ -40,7 +40,7 @@ const AddOrEditUnderwear = () => {
     );
 
     useEffect(() => {
-        const isButtonEnabled = position.underwearType  && position.textileType;
+        const isButtonEnabled = !!position.underwearType  && position.textileType;
         setButtonEnabled(isButtonEnabled);
     }, [position]);
 
@@ -66,9 +66,10 @@ const AddOrEditUnderwear = () => {
     }, [tnvedResult]);
 
     const buttonStyle = {
-        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-        color: buttonEnabled ? 'black' : 'white',
-        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+        backgroundColor: 'yellow',
+        color: 'black',
+        cursor: 'pointer',
+        transition: 'opacity 0.3s ease-in-out', // Optional: smooth appearance
     };
 
     const navigate = useNavigate();
@@ -280,7 +281,14 @@ const AddOrEditUnderwear = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
+                {buttonEnabled && (
+                <Button 
+                    onClick={handleTNVEDClick} 
+                    style={buttonStyle}
+                >
+                    Подобрать код ТНВЭД
+                </Button>
+                )}
                 <HsCodeHelp type={'underwear'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
