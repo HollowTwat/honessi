@@ -44,7 +44,7 @@ const tnvedResult = useTNVED(
 );
 
 useEffect(() => {
-    const isButtonEnabled = position.perfumeType;
+    const isButtonEnabled = !!position.perfumeType;
     setButtonEnabled(isButtonEnabled);
 }, [position]);
 
@@ -68,9 +68,10 @@ useEffect(() => {
 }, [tnvedResult]);
 
 const buttonStyle = {
-    backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-    color: buttonEnabled ? 'black' : 'white',
-    cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    backgroundColor: 'yellow',
+    color: 'black',
+    cursor: 'pointer',
+    transition: 'opacity 0.3s ease-in-out', // Optional: smooth appearance
 };
 
     useEffect(() => {
@@ -261,7 +262,15 @@ const buttonStyle = {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
-                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
+                {/* Conditionally render the TNVED button */}
+                {buttonEnabled && (
+                <Button 
+                    onClick={handleTNVEDClick} 
+                    style={buttonStyle}
+                >
+                    Подобрать код ТНВЭД
+                </Button>
+            )}
                 <HsCodeHelp type={'perfume'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
