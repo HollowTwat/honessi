@@ -61,6 +61,10 @@ const AddOrEditShoes = () => {
                 ...prevState,
                 hsCode: tnvedResult
             }));
+            setPositionValid(prevState => ({
+                ...prevState,
+                hsCode: true // Mark hsCode as valid
+            }));
             setTriggerTNVED(false); // Reset the trigger
         }
     }, [tnvedResult]);
@@ -121,7 +125,7 @@ const AddOrEditShoes = () => {
         const isValid = Object.values(positionValid).every(value => value === true);
         setValid(isValid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [positionValid])
+    }, [positionValid, position.hsCode])
 
 
     useEffect(() => {
