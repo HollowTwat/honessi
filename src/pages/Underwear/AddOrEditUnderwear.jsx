@@ -4,7 +4,7 @@ import {countries} from "../../constants/Сountries";
 import Input from "../../components/UI/Input";
 import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
-// import Button from "../../components/UI/Button";
+import Button from "../../components/UI/Button";
 import Set from "../../components/categories/perfume/Set";
 import {useNavigate, useParams} from "react-router-dom";
 import {useLocalStorage} from "@uidotdev/usehooks";
@@ -21,8 +21,8 @@ import {consumerAge} from "../../constants/underwear/consumerAge";
 import {underwearType} from "../../constants/underwear/underwearType";
 import {textileType} from "../../constants/underwear/textileType";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
-// import Button from "../../components/UI/Button";
-// import useTNVED from "../../hooks/useTNVED";
+import Button from "../../components/UI/Button";
+import useTNVED from "../../hooks/useTNVED";
 
 const AddOrEditUnderwear = () => {
 
@@ -31,41 +31,41 @@ const AddOrEditUnderwear = () => {
     const [data, setData] = useLocalStorage(localStorageNames['underwear']);
     const [position, setPosition] = useState(editId ? data.positions[editId] : initUnderwearPosition);
     const [positionValid, setPositionValid] = useState(initUnderwearPositionValid);
-    // const [triggerTNVED, setTriggerTNVED] = useState(false);
-    // const [buttonEnabled, setButtonEnabled] = useState(false);
+    const [triggerTNVED, setTriggerTNVED] = useState(false);
+    const [buttonEnabled, setButtonEnabled] = useState(false);
 
-    // const tnvedResult = useTNVED(
-    //     triggerTNVED ? position.underwearType  : null,
-    //     triggerTNVED ? position.textileType : null,
-    //     ""
-    // );
+    const tnvedResult = useTNVED(
+        triggerTNVED ? position.underwearType  : null,
+        triggerTNVED ? position.textileType : null,
+        ""
+    );
 
-    // useEffect(() => {
-    //     const isButtonEnabled = position.underwearType  && position.textileType;
-    //     setButtonEnabled(isButtonEnabled);
-    // }, [position]);
+    useEffect(() => {
+        const isButtonEnabled = position.underwearType  && position.textileType;
+        setButtonEnabled(isButtonEnabled);
+    }, [position]);
 
 
-    // const handleTNVEDClick = () => {
-    //     setTriggerTNVED(true);
-    // }
+    const handleTNVEDClick = () => {
+        setTriggerTNVED(true);
+    }
 
-    // useEffect(() => {
-    //     if (tnvedResult) {
-    //         console.log("TNVED Result: ", tnvedResult);
-    //         setPosition(prevState => ({
-    //             ...prevState,
-    //             hsCode: tnvedResult
-    //         }));
-    //         setTriggerTNVED(false); // Reset the trigger
-    //     }
-    // }, [tnvedResult]);
+    useEffect(() => {
+        if (tnvedResult) {
+            console.log("TNVED Result: ", tnvedResult);
+            setPosition(prevState => ({
+                ...prevState,
+                hsCode: tnvedResult
+            }));
+            setTriggerTNVED(false); // Reset the trigger
+        }
+    }, [tnvedResult]);
 
-    // const buttonStyle = {
-    //     backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-    //     color: buttonEnabled ? 'black' : 'white',
-    //     cursor: buttonEnabled ? 'pointer' : 'not-allowed'
-    // };
+    const buttonStyle = {
+        backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+        color: buttonEnabled ? 'black' : 'white',
+        cursor: buttonEnabled ? 'pointer' : 'not-allowed'
+    };
 
     const navigate = useNavigate();
     const { tg } = useTelegram();
@@ -276,7 +276,7 @@ const AddOrEditUnderwear = () => {
                     onChange={(e)=>{handleDataUpdate(e, 'hsCode')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
-{/*                 <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Check TNVED</Button> */}
+                <Button onClick={handleTNVEDClick} style={buttonStyle} disabled={!buttonEnabled}>Подобрать код ТНВЭД</Button>
                 <HsCodeHelp type={'underwear'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
