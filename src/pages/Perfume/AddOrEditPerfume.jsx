@@ -34,6 +34,7 @@ const AddOrEditPerfume = () => {
     const [positionValid, setPositionValid] = useState(initPerfumePositionValid);
     const [buttonEnabled, setButtonEnabled] = useState(false);
     const [triggerTNVED, setTriggerTNVED] = useState(false);
+    const [isCooldown, setIsCooldown] = useState(false);
 
 
 
@@ -44,12 +45,17 @@ const tnvedResult = useTNVED(
 );
 
 useEffect(() => {
-    const isButtonEnabled = !!position.perfumeType;
+    const isButtonEnabled = !!position.perfumeType && !isCooldown;
     setButtonEnabled(isButtonEnabled);
 }, [position]);
 
 const handleTNVEDClick = () => {
     setTriggerTNVED(true);
+    // Start cooldown
+    setIsCooldown(true);
+    setTimeout(() => {
+        setIsCooldown(false); // Re-enable the button after 5 seconds
+    }, 5000);
 }
 
 useEffect(() => {
@@ -68,10 +74,10 @@ useEffect(() => {
 }, [tnvedResult]);
 
 const buttonStyle = {
-    backgroundColor: 'yellow',
-    color: 'black',
-    cursor: 'pointer',
-    transition: 'opacity 0.3s ease-in-out', // Optional: smooth appearance
+    backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+    color: buttonEnabled ? 'black' : 'white',
+    cursor: buttonEnabled ? 'pointer' : 'not-allowed',
+    transition: 'background-color 0.3s, color 0.3s, cursor 0.3s'
 };
 
     useEffect(() => {
@@ -267,6 +273,7 @@ const buttonStyle = {
                 <Button 
                     onClick={handleTNVEDClick} 
                     style={buttonStyle}
+                    disabled={isCooldown} // Disable the button during cooldown
                 >
                     Подобрать код ТНВЭД
                 </Button>
