@@ -47,7 +47,7 @@ const tnvedResult = useTNVED(
 useEffect(() => {
     const isButtonEnabled = !!position.perfumeType && !isCooldown;
     setButtonEnabled(isButtonEnabled);
-}, [position]);
+}, [position,isCooldown]);
 
 const handleTNVEDClick = () => {
     setTriggerTNVED(true);
