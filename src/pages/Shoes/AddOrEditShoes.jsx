@@ -25,7 +25,7 @@ import {formStyle} from "../../styles/form";
 import {addOrEditPositionButton, unActiveButton} from "../../styles/colors";
 import {localStorageNames} from "../../constants/LocalStorageNames";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
-import useTNVED from "../../hooks/useTNVED";
+import useTNVED_s from "../../hooks/useTNVED_sh";
 
 
 const AddOrEditShoes = () => {
@@ -39,7 +39,7 @@ const AddOrEditShoes = () => {
     const [buttonEnabled, setButtonEnabled] = useState(false);
     const [isCooldown, setIsCooldown] = useState(false);
     
-    const tnvedResult = useTNVED(
+    const tnvedResult = useTNVED_s(
         triggerTNVED ? position.shoesType : null,
         triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial] : null,
         triggerTNVED ? position.sex : null
