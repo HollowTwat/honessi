@@ -37,7 +37,8 @@ const AddOrEditShoes = () => {
     const [positionValid, setPositionValid] = useState(initShoesPositionValid);
     const [triggerTNVED, setTriggerTNVED] = useState(false);
     const [buttonEnabled, setButtonEnabled] = useState(false);
-
+    const [isCooldown, setIsCooldown] = useState(false);
+    
     const tnvedResult = useTNVED(
         triggerTNVED ? position.shoesType : null,
         triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial,""] : null,
@@ -45,13 +46,18 @@ const AddOrEditShoes = () => {
     );
 
     useEffect(() => {
-        const isButtonEnabled = !!position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex;
+        const isButtonEnabled = !!position.shoesType && position.upperMaterial && position.liningMaterial && position.bottomMaterial && position.sex && !isCooldown;
         setButtonEnabled(isButtonEnabled);
-    }, [position]);
+    }, [position, isCooldown]);
 
 
     const handleTNVEDClick = () => {
         setTriggerTNVED(true);
+        // Start cooldown
+        setIsCooldown(true);
+        setTimeout(() => {
+            setIsCooldown(false); // Re-enable the button after 5 seconds
+        }, 5000);
     }
 
     useEffect(() => {
@@ -284,6 +290,7 @@ const AddOrEditShoes = () => {
                 <Button 
                     onClick={handleTNVEDClick} 
                     style={buttonStyle}
+                    disabled={isCooldown} // Disable the button during cooldown
                 >
                     Подобрать код ТНВЭД
                 </Button>
