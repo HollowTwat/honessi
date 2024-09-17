@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const useTNVED_s = (type, materials, sex) => {
+const useTNVED_s = (type, materials_t, materials_m, materials_b, sex) => {
   const [hsCode, setHsCode] = useState(null);
 
   useEffect(() => {
     const fetchHsCode = async () => {
-      if (type && materials && sex) {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type},${materials},${sex}`
+      if (type && materials_t && materials_m && materials_b && sex) {
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type},${materials_t},${materials_m},${materials_b},${sex}`
 
         // Simulate a delay to mimic an API call
         const response = await fetch(url, {
@@ -25,7 +25,7 @@ const useTNVED_s = (type, materials, sex) => {
 
     fetchHsCode();
   }
-  , [type, materials, sex]);
+  , [type, materials_t, materials_m, materials_b, sex]);
 
   return hsCode;
 };
