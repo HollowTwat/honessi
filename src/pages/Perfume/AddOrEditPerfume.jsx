@@ -48,17 +48,22 @@ useEffect(() => {
     setButtonEnabled(isButtonEnabled);
 }, [position.perfumeType, isCooldown]);
 
+const isTriggeredRef = useRef(false);
+
 const handleTNVEDClick = useCallback(() => {
-    if (!triggerTNVED) {  // Ensure it doesn't re-trigger if already set
+    if (!isTriggeredRef.current) {
         setTriggerTNVED(true);
-        
+        isTriggeredRef.current = true;  // Prevent multiple triggers
+
         // Start cooldown
         setIsCooldown(true);
         setTimeout(() => {
-            setIsCooldown(false);  // Re-enable the button after 5 seconds
+            setIsCooldown(false);
+            isTriggeredRef.current = false;  // Reset after cooldown
         }, 5000);
     }
-}, [triggerTNVED]);
+}, []);
+
 
 useEffect(() => {
     if (tnvedResult) {
