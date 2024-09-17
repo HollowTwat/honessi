@@ -21,10 +21,10 @@ const useTNVED = (clothesType, materials, sex) => {
         const strippedData = data.replace(/"/g, '');
         setHsCode(strippedData); // Static value for debugging // Static value for debugging
       }
-    };
+    // };
 
     fetchHsCode();
-  // }
+  }
   , [clothesType, materials, sex]);
 
   return hsCode;
