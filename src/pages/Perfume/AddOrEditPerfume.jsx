@@ -20,7 +20,7 @@ import {packagingMaterial} from "../../constants/perfume/packagingMaterial";
 import {perfumeType} from "../../constants/perfume/perfumeType";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
 import Button from "../../components/UI/Button";
-import useTNVED from "../../hooks/useTNVED";
+import useTNVED_p from "../../hooks/useTNVED_Perfume";
 
 const AddOrEditPerfume = () => {
 
@@ -37,10 +37,8 @@ const AddOrEditPerfume = () => {
     const [isCooldown, setIsCooldown] = useState(false);
 
 
-const tnvedResult = useTNVED(
-    triggerTNVED ? position.perfumeType : null,
-    triggerTNVED ? [""] : null,
-    triggerTNVED ? [""] : null
+const tnvedResult = useTNVED_p(
+    triggerTNVED ? position.perfumeType : null
 );
 
 useEffect(() => {
