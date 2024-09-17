@@ -40,8 +40,8 @@ const AddOrEditPerfume = () => {
 
 const tnvedResult = useTNVED(
     triggerTNVED ? position.perfumeType : null,
-    triggerTNVED ? null : null,
-    triggerTNVED ? null : null
+    triggerTNVED ? "" : null,
+    triggerTNVED ? "" : null
 );
 
 useEffect(() => {
