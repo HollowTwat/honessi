@@ -32,6 +32,7 @@ const AddOrEditUnderwear = () => {
     const [positionValid, setPositionValid] = useState(initUnderwearPositionValid);
     const [triggerTNVED, setTriggerTNVED] = useState(false);
     const [buttonEnabled, setButtonEnabled] = useState(false);
+    const [isCooldown, setIsCooldown] = useState(false);
 
     const tnvedResult = useTNVED(
         triggerTNVED ? position.underwearType  : null,
@@ -40,13 +41,18 @@ const AddOrEditUnderwear = () => {
     );
 
     useEffect(() => {
-        const isButtonEnabled = !!position.underwearType  && position.textileType;
+        const isButtonEnabled = !!position.underwearType  && !!position.textileType  && !isCooldown;
         setButtonEnabled(isButtonEnabled);
-    }, [position]);
+    }, [position, isCooldown]);
 
 
     const handleTNVEDClick = () => {
         setTriggerTNVED(true);
+        // Start cooldown
+        setIsCooldown(true);
+        setTimeout(() => {
+            setIsCooldown(false); // Re-enable the button after 5 seconds
+        }, 5000);
     }
 
     useEffect(() => {
@@ -285,6 +291,7 @@ const AddOrEditUnderwear = () => {
                 <Button 
                     onClick={handleTNVEDClick} 
                     style={buttonStyle}
+                    disabled={isCooldown} // Disable the button during cooldown
                 >
                     Подобрать код ТНВЭД
                 </Button>
