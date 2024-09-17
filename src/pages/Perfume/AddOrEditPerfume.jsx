@@ -36,12 +36,12 @@ const AddOrEditPerfume = () => {
     const [triggerTNVED, setTriggerTNVED] = useState(false);
     const [isCooldown, setIsCooldown] = useState(false);
 
-
+emptyStr = ""
 
 const tnvedResult = useTNVED(
-    triggerTNVED ? position.perfumeType : "",
-    triggerTNVED ? "" : "",
-    triggerTNVED ? "" : ""
+    triggerTNVED ? position.perfumeType : null,
+    triggerTNVED ? emptyStr : null,
+    triggerTNVED ? emptyStr : null
 );
 
 useEffect(() => {
