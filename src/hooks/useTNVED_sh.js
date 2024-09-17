@@ -6,7 +6,7 @@ const useTNVED_s = (type, materials, sex) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type && materials && sex) {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${clothesType},${materials},${sex}`
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type},${materials},${sex}`
 
         // Simulate a delay to mimic an API call
         const response = await fetch(url, {
@@ -25,7 +25,7 @@ const useTNVED_s = (type, materials, sex) => {
 
     fetchHsCode();
   }
-  , [clothesType, materials, sex]);
+  , [type, materials, sex]);
 
   return hsCode;
 };
