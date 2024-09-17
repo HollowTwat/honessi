@@ -276,7 +276,7 @@ const buttonStyle = {
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'hsCode')}}
                 />
                 {/* Conditionally render the TNVED button */}
-                {buttonEnabled && (
+                
                 <Button 
                     onClick={handleTNVEDClick} 
                     style={buttonStyle}
@@ -284,7 +284,7 @@ const buttonStyle = {
                 >
                     Подобрать код ТНВЭД
                 </Button>
-            )}
+
                 <HsCodeHelp type={'perfume'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
