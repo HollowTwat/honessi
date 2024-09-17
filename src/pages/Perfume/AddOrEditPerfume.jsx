@@ -49,14 +49,17 @@ useEffect(() => {
     setButtonEnabled(isButtonEnabled);
 }, [position,isCooldown]);
 
-const handleTNVEDClick = () => {
-    setTriggerTNVED(true);
-    // Start cooldown
-    setIsCooldown(true);
-    setTimeout(() => {
-        setIsCooldown(false); // Re-enable the button after 5 seconds
-    }, 5000);
-}
+const handleTNVEDClick = useCallback(() => {
+    if (!triggerTNVED) {  // Ensure it doesn't re-trigger if already set
+        setTriggerTNVED(true);
+        
+        // Start cooldown
+        setIsCooldown(true);
+        setTimeout(() => {
+            setIsCooldown(false);  // Re-enable the button after 5 seconds
+        }, 5000);
+    }
+}, [triggerTNVED]);
 
 useEffect(() => {
     if (tnvedResult) {
