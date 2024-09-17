@@ -295,6 +295,7 @@ const AddOrEditShoes = () => {
                     Подобрать код ТНВЭД
                 </Button>
                 )}
+                <Button onClick={useTnved("Духи",[""],[""])}>TEST321</Button>
                 <HsCodeHelp type={'shoes'}/>
                 <ArticlePrice
                     initState={position.articlePrice}
