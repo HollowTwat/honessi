@@ -246,6 +246,7 @@ const AddOrEditClothes = () => {
                 <Button 
                     onClick={handleTNVEDClick} 
                     style={buttonStyle}
+                    disabled={isCooldown} // Disable the button during cooldown
                 >
                     Подобрать код ТНВЭД
                 </Button>
