@@ -41,7 +41,7 @@ const AddOrEditShoes = () => {
     
     const tnvedResult = useTNVED(
         triggerTNVED ? position.shoesType : null,
-        triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial,""] : null,
+        triggerTNVED ? [position.upperMaterial, position.liningMaterial, position.bottomMaterial] : null,
         triggerTNVED ? position.sex : null
     );
 
