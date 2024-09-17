@@ -80,12 +80,12 @@ useEffect(() => {
     }
 }, [tnvedResult]);
 
-const buttonStyle = {
-    // backgroundColor: buttonEnabled ? 'yellow' : 'grey',
-    // color: buttonEnabled ? 'black' : 'white',
-    // cursor: buttonEnabled ? 'pointer' : 'not-allowed',
-    transition: 'background-color 0.3s, color 0.3s, cursor 0.3s'
-};
+// const buttonStyle = {
+//     // backgroundColor: buttonEnabled ? 'yellow' : 'grey',
+//     // color: buttonEnabled ? 'black' : 'white',
+//     // cursor: buttonEnabled ? 'pointer' : 'not-allowed',
+//     transition: 'background-color 0.3s, color 0.3s, cursor 0.3s'
+// };
 
     useEffect(() => {
 
@@ -279,7 +279,7 @@ const buttonStyle = {
                 {buttonEnabled && (
                 <Button 
                     onClick={handleTNVEDClick} 
-                    style={buttonStyle}
+{/*                     style={buttonStyle} */}
                     disabled={isCooldown} // Disable the button during cooldown
                 >
                     Подобрать код ТНВЭД
