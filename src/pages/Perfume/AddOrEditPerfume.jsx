@@ -68,6 +68,8 @@ const handleTNVEDClick = useCallback(() => {
 useEffect(() => {
     if (tnvedResult) {
         console.log("TNVED Result: ", tnvedResult);
+        console.log("TNVED Result: ", tnvedResult);
+        console.log("TNVED Result: ", tnvedResult);
         setPosition(prevState => ({
             ...prevState,
             hsCode: tnvedResult
