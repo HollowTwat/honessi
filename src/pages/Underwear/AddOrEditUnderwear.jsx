@@ -21,7 +21,7 @@ import {underwearType} from "../../constants/underwear/underwearType";
 import {textileType} from "../../constants/underwear/textileType";
 import HsCodeHelp from "../../components/common/HsCodeHelp";
 import Button from "../../components/UI/Button";
-import useTNVED_u from "../../hooks/useTNVED_und";
+import useTNVED from "../../hooks/useTNVED";
 
 const AddOrEditUnderwear = () => {
 
@@ -34,9 +34,10 @@ const AddOrEditUnderwear = () => {
     const [buttonEnabled, setButtonEnabled] = useState(false);
     const [isCooldown, setIsCooldown] = useState(false);
 
-    const tnvedResult = useTNVED_u(
+    const tnvedResult = useTNVED(
         triggerTNVED ? position.underwearType  : null,
-        triggerTNVED ? position.textileType : null
+        triggerTNVED ? position.textileType : null,
+        triggerTNVED ? [""} : null
     );
 
     useEffect(() => {
