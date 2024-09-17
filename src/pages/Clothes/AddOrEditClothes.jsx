@@ -34,6 +34,7 @@ const AddOrEditClothes = () => {
     const [position, setPosition] = useState(editId ? data.positions[editId] : initClothesPosition);
     const [positionValid, setPositionValid] = useState(initClothesPositionValid);
     const [triggerTNVED, setTriggerTNVED] = useState(false);
+    const [isCooldown, setIsCooldown] = useState(false);
 
     const tnvedResult = useTNVED(
         triggerTNVED ? position.clothesType : null,
@@ -71,9 +72,9 @@ const AddOrEditClothes = () => {
     }, [isValid, editId, tg.MainButton]);
 
     useEffect(() => {
-        const isButtonEnabled = !!position.clothesType && position.materials.length > 0 && position.sex;
+        const isButtonEnabled = !!position.clothesType && position.materials.length > 0 && position.sex && !isCooldown;
         setButtonEnabled(isButtonEnabled);
-    }, [position]);
+    }, [position, isCooldown]);
 
     tg.BackButton.onClick(() => {
         navigate("/clothes");
@@ -134,6 +135,11 @@ const AddOrEditClothes = () => {
 
     const handleTNVEDClick = () => {
         setTriggerTNVED(true);
+        // Start cooldown
+        setIsCooldown(true);
+        setTimeout(() => {
+            setIsCooldown(false); // Re-enable the button after 5 seconds
+        }, 5000);
     }
 
     useEffect(() => {
