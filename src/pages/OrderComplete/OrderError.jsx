@@ -32,12 +32,15 @@ const OrderError = () => {
             <CategoryHeader backgroundColor={error1}/>
             <div style={formStyle}>
                 <div style={{textAlign: 'center'}}>
-                    <h1>Ошибка!</h1>
-                    <h2>К сожалению, при оформелении заказа произошла ошибка!</h2>
+                    <h1>Ошибка!(Тестовый режим)</h1>
+                    <h2>Спасибо что участвуете в тестировании нашего нового бота!</h2>
                 </div>
                 <h4 style={{textAlign: 'center', marginTop: 50}}>
                     Мы запомнили ваш заказ, но пока не смогли его обработать, попробуйте повторить его отправку позже
                 </h4>
+                <h2 style={{textAlign: 'center', marginTop: 150}}>
+                    Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
+                </h2>
             </div>
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
