@@ -42,13 +42,14 @@ const OrderComplete = () => {
                     Номер заказа №{num}<br/>Скоро с Вами свяжется наш менеджер!
                 </h4>
 
-                <h2 style={{textAlign: 'center', marginTop: 20}}>
-                    Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
-                </h2>
+
             </div>
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
+                <h5 style={{textAlign: 'center', marginTop: 20}}>
+                    Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
+                </h5>
             </div>
         </div>
     );
