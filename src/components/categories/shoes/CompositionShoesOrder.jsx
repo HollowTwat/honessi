@@ -10,24 +10,22 @@ import {shoesSize} from "../../../constants/shoes/ShoesSize";
 
 const CompositionShoesOrder = ({values, setValue, withBox, onChangeValid}) => {
     
-const handleUpdateValid = useCallback((list) => {
-    let index = 0;
-    let isValid = true;
+    const handleUpdateValid = useCallback((list) => {
 
-    while (index < list.length && isValid) {
-        const item = list[index];
-        const sizeIsValid = item['size'] !== ''; // Ensure size is filled in
-        const countIsValid = validate(item['count'], 'numeric'); // Validate count with 'numeric' since withBox is always false
-        
-        if (!sizeIsValid || !countIsValid) {
-            isValid = false; // Set validity to false if either size or count is invalid
+        let index = 0;
+        let isValid = true
+
+        while (index < list.length && isValid) {
+            if (list[index]['size'] === '' &&
+                validate(list[index]['count'], withBox ? 'withBox' : 'numeric')) {
+                isValid = false
+            }
+            index++;
         }
 
-        index++;
-    }
+        onChangeValid(isValid);
 
-    onChangeValid(isValid);
-}, [onChangeValid]);
+    }, [onChangeValid, withBox])
 
 
     const handleItemAdd = useCallback(() => {
