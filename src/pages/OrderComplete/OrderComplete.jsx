@@ -35,12 +35,16 @@ const OrderComplete = () => {
             <CategoryHeader backgroundColor={orderButton}/>
             <div style={formStyle}>
                 <div style={{textAlign: 'center'}}>
-                    <h1>Спасибо!</h1>
-                    <h2>За Ваш заказ!</h2>
+                    <h1>Тестовый режим</h1>
+                    <h2>Спасибо что участвуете в тестировании нашего нового бота</h2>
                 </div>
                 <h4 style={{textAlign: 'center', marginTop: 50}}>
                     Номер заказа №{num}<br/>Скоро с Вами свяжется наш менеджер!
                 </h4>
+
+                <h2 style={{textAlign: 'center', marginTop: 150}}>
+                    Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
+                </h2>
             </div>
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
