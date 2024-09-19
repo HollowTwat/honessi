@@ -49,13 +49,12 @@ const OrderComplete = () => {
 
 
             </div>
-            <h5 style={{textAlign: 'center'}}>
-                    Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
-                </h5>
             <div style={{position: 'fixed', padding: 20, bottom: 0}}>
                 <Button onClick={handleToMainPage}>Сделать новый заказ</Button>
                 <Button onClick={handleCloseWebApp}>Вернуться в Telegram</Button>
-                
+                <h5 style={{textAlign: 'center'}}>
+                    Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
+                </h5>
             </div>
         </div>
     );
