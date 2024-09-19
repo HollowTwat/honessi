@@ -38,7 +38,7 @@ const OrderError = () => {
                 <h4 style={{textAlign: 'center', marginTop: 50}}>
                     Мы запомнили ваш заказ, но пока не смогли его обработать, попробуйте повторить его отправку позже
                 </h4>
-                <h2 style={{textAlign: 'center', marginTop: 150}}>
+                <h2 style={{textAlign: 'center', marginTop: 20}}>
                     Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
                 </h2>
             </div>
