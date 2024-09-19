@@ -23,7 +23,7 @@ export function validate(value, validationType) {
     }
 
     if (validationType === 'hsCode') {
-        return value.length >= 10 && isNaN(value) === false;
+        return value.length == 10 && isNaN(value) === false;
     }
 
     if (validationType in validationPatterns) {
