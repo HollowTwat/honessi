@@ -36,7 +36,7 @@ const OrderComplete = () => {
             <div style={formStyle}>
                 <div style={{textAlign: 'center'}}>
                     <h1>Тестовый режим</h1>
-                    <h2>Спасибо что участвуете в тестировании нашего нового бота</h2>
+                    <h4>Спасибо что участвуете в тестировании нашего нового бота</h4>
                 </div>
                 <h4 style={{textAlign: 'center', marginTop: 50}}>
                     Номер заказа №{num}<br/>Скоро с Вами свяжется наш менеджер!
