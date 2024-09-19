@@ -42,7 +42,7 @@ const OrderComplete = () => {
                     Номер заказа №{num}<br/>Скоро с Вами свяжется наш менеджер!
                 </h4>
 
-                <h2 style={{textAlign: 'center', marginTop: 150}}>
+                <h2 style={{textAlign: 'center', marginTop: 20}}>
                     Для оперативной связи с разработкой напишите в канал<br/>https://t.me/KotOps_dev
                 </h2>
             </div>
