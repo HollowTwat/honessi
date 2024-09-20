@@ -11,7 +11,7 @@ import Input from "../../components/UI/Input";
 import CustomSelect from "../../components/UI/CustomSelect";
 // import Set from "../../components/categories/perfume/Set";
 import {countries} from "../../constants/Сountries";
-import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
+// import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
 // import Button from "../../components/UI/Button";
 import {measurementUnit} from "../../constants/perfume/measurementUnit";
@@ -285,13 +285,13 @@ useEffect(() => {
                 </Button>
                 )}
                 <HsCodeHelp type={'perfume'}/>
-                <ArticlePrice
+{/*                 <ArticlePrice
                     initState={position.articlePrice}
                     initValue={position.articlePriceData}
                     onChangeState={(state)=>{handleDataUpdate(state, 'articlePrice')}}
                     onChangeValue={(value)=>{handleDataUpdate(value, 'articlePriceData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'articlePriceData')}}
-                />
+                /> */}
                 <PermissiveDocumentation
                     initState={position.permissiveDocumentation}
                     initValue={position.permissiveDocumentationData}
