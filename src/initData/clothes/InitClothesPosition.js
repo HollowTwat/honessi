@@ -36,6 +36,6 @@ export const initClothesPositionValid = {
     sex: false,
     country: false,
     hsCode: false,
-    articlePriceData: false,
+    articlePriceData: true,
     permissiveDocumentationData: false,
 }
