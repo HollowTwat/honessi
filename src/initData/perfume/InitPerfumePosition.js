@@ -36,6 +36,6 @@ export const initPerfumePositionValid = {
     total: false,
     country: false,
     hsCode: false,
-    articlePriceData: false,
+    articlePriceData: true,
     permissiveDocumentationData: false
 }
