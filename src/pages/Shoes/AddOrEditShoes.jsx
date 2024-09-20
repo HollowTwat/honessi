@@ -6,7 +6,7 @@ import CustomSelect from "../../components/UI/CustomSelect";
 import CategoryHeader from "../../components/UI/Headers/CategoryHeader";
 // import WithBox from "../../components/categories/shoes/WithBox/WithBox";
 import CompositionShoesOrder from "../../components/categories/shoes/CompositionShoesOrder";
-import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
+// import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useNavigate, useParams} from "react-router-dom";
@@ -298,13 +298,13 @@ const AddOrEditShoes = () => {
                 </Button>
                 )}
                 <HsCodeHelp type={'shoes'}/>
-                <ArticlePrice
+{/*                 <ArticlePrice
                     initState={position.articlePrice}
                     initValue={position.articlePriceData}
                     onChangeState={(state)=>{handleDataUpdate(state, 'articlePrice')}}
                     onChangeValue={(value)=>{handleDataUpdate(value, 'articlePriceData')}}
                     onChangeValid={(isValid) => {handleValidUpdate(isValid, 'articlePriceData')}}
-                />
+                /> */}
                 <PermissiveDocumentation
                     initState={position.permissiveDocumentation}
                     initValue={position.permissiveDocumentationData}
