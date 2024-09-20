@@ -14,7 +14,7 @@ import { addOrEditPositionButton, unActiveButton } from "../../styles/colors";
 import CompositionClothesOrder from "../../components/categories/clothes/CompositionClothesOrder";
 import DivisionLine from "../../components/UI/DivisionLine";
 import { countries } from "../../constants/Сountries";
-import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
+// import ArticlePrice from "../../components/common/articlePrice/ArticlePrice";
 import PermissiveDocumentation from "../../components/common/permissiveDocumentation/PermissiveDocumentation";
 import MultipleSelect from "../../components/UI/MultipleSelect";
 import { clothesMaterial } from "../../constants/clothes/ClothesMaterial";
@@ -252,13 +252,13 @@ const AddOrEditClothes = () => {
                 </Button>
                 )}
                 <HsCodeHelp type={'clothes'} />
-                <ArticlePrice
+{/*                 <ArticlePrice
                     initState={position.articlePrice}
                     initValue={position.articlePriceData}
                     onChangeState={(state) => { handleDataUpdate(state, 'articlePrice') }}
                     onChangeValue={(value) => { handleDataUpdate(value, 'articlePriceData') }}
                     onChangeValid={(isValid) => { handleValidUpdate(isValid, 'articlePriceData') }}
-                />
+                /> */}
                 <PermissiveDocumentation
                     initState={position.permissiveDocumentation}
                     initValue={position.permissiveDocumentationData}
