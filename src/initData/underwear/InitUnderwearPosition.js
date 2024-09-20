@@ -41,6 +41,6 @@ export const initUnderwearPositionValid = {
     consumerAge: false,
     country: false,
     hsCode: false,
-    articlePriceData: false,
+    articlePriceData: true,
     permissiveDocumentationData: false,
 }
