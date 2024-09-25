@@ -71,5 +71,5 @@ export function validNumberSet(data) {
 }
 
 export function validOrder(data) {
-    return data.organization.inn !== '' && data.positions.length > 0
+    return data.organization.inn !== '' && data.positions.length > 0 && data.organization.inn.length in ['10','12']
 }
