@@ -4,7 +4,7 @@ const validationPatterns = {
     floatNumeric: /^\d+([.,]\d+)?([eE][-+]?\d+)?$/,
     inn: /^(?:\d{10}|\d{12})$/,
     sizeShoes: /^((1[6-9]|2[0-9]|3[0-9]|4[0-9]|5[0-6])|(\d+(\.\d+)?)-(\d+(\.\d+)?)|(\d+(\.\d+)?))$/,
-    sizeClothes: /^(XXS|XS|S|M|L|XL|XXL|ONE SIZE|1[2-9]|[2-6][0-9]|7[0-4]|(1[2-9]|[2-6][0-9]|7[0-4])-(1[2-9]|[2-6][0-9]|7[0-4]))$/,
+    sizeClothes: /^(XXS|XS|S|M|L|XL|XXL|XXXL|ONE SIZE|1[2-9]|[2-6][0-9]|7[0-4]|(1[2-9]|[2-6][0-9]|7[0-4])-(1[2-9]|[2-6][0-9]|7[0-4]))$/,
 };
 
 export const validateError = {
