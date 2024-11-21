@@ -6,7 +6,9 @@ const useTNVED_s = (type, materials_t, materials_m, materials_b, sex) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type && materials_t && materials_m && materials_b && sex) {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type},${materials_t},${materials_m},${materials_b},${sex}`
+        // const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type},${materials_t},${materials_m},${materials_b},${sex}`
+        const url = `https://quart-test-production-9039.up.railway.app/test?input=${type},${materials_t},${materials_m},${materials_b},${sex}`
+        
 
         // Simulate a delay to mimic an API call
         const response = await fetch(url, {
