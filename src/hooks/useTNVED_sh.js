@@ -22,6 +22,7 @@ const useTNVED_s = (type, materials_t, materials_m, materials_b, sex) => {
         const data = await response.text()
         const strippedData = data.replace(/"/g, '');
         setHsCode(strippedData); // Static value for debugging // Static value for debugging
+        setHsCode(123456);
       }
     };
 
