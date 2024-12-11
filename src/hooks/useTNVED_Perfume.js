@@ -8,7 +8,6 @@ const useTNVED_p = (type) => {
       if (type) {
         const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`
 
-        // Simulate a delay to mimic an API call
         const response = await fetch(url, {
             method: "POST",
                 mode: "cors",
@@ -19,7 +18,7 @@ const useTNVED_p = (type) => {
         });
         const data = await response.text()
         const strippedData = data.replace(/"/g, '');
-        setHsCode(strippedData); // Static value for debugging // Static value for debugging
+        setHsCode(strippedData);
       }
     };
 
