@@ -15,10 +15,9 @@ const useTNVED_p = (type) => {
               // "Content-Type": "application/json",
               "Accept": "*/*",
             },
-            mode: "cors", // Explicitly specify CORS mode
+            mode: "cors",
           });
 
-          // Check if response is not OK
           if (!response.ok) {
             const errorText = await response.text();
             setHsCode(
@@ -27,7 +26,6 @@ const useTNVED_p = (type) => {
             throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
           }
 
-          // Handle successful response
           const data = await response.text();
           if (!data) {
             setHsCode(`Error: Empty response (Status: ${response.status})`);
