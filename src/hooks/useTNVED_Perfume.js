@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const useTNVED_p = (type) => {
-  const [hsCode, setHsCode] = useState(null);
-  // const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
+  // const [hsCode, setHsCode] = useState(null);
+  const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
 
   useEffect(() => {
     const fetchHsCode = async () => {
@@ -19,7 +19,7 @@ const useTNVED_p = (type) => {
             mode: "cors", // Explicitly specify CORS mode
           });
 
-          // setRawResponse(response); // Save raw response for debugging
+          setRawResponse(response); // Save raw response for debugging
 
           if (!response.ok) {
             const errorText = await response.text();
@@ -37,7 +37,7 @@ const useTNVED_p = (type) => {
           setHsCode(strippedData); // Success case
         } catch (error) {
           if (error.message === "Failed to fetch") {
-            setHsCode(`Network error: Check CORS or server configuration. (Fallback: ${data})`);
+            setHsCode(`Network error: Check CORS or server configuration. (Fallback: ${rawResponse})`);
           } else {
             setHsCode(`Error: ${error.message}.`);
           }
