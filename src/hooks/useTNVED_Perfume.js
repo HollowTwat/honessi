@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useTNVED_p = (type) => {
   const [hsCode, setHsCode] = useState(null);
+  const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
 
   useEffect(() => {
     const fetchHsCode = async () => {
@@ -12,26 +13,34 @@ const useTNVED_p = (type) => {
           const response = await fetch(url, {
             method: "POST",
             headers: {
-              "Accept": "*/*", // As seen in the Swagger documentation
+              "Accept": "*/*",
+              "Content-Type": "application/json",
             },
+            mode: "cors", // Explicitly specify CORS mode
           });
 
+          setRawResponse(response); // Save raw response for debugging
+
           if (!response.ok) {
-            // Set hsCode with response status when the response is not ok
-            setHsCode(`Error: (Status: ${response.status})`);
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            const errorText = await response.text();
+            setHsCode(`Error: ${errorText || "No error message"} (Status: ${response.status})`);
+            throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
           }
 
           const data = await response.text();
           if (!data) {
+            setHsCode(`Error: Empty response (Status: ${response.status})`);
             throw new Error("Empty response from server");
           }
+
           const strippedData = data.replace(/"/g, '');
-          setHsCode(strippedData);
+          setHsCode(strippedData); // Success case
         } catch (error) {
-          console.error("Error fetching HS Code:", error);
-          // Fallback to type with status 500
-          setHsCode(error);
+          if (error.message === "Failed to fetch") {
+            setHsCode(`Network error: Check CORS or server configuration. (Fallback: ${type})`);
+          } else {
+            setHsCode(`Error: ${error.message}.`);
+          }
         }
       }
     };
@@ -39,7 +48,7 @@ const useTNVED_p = (type) => {
     fetchHsCode();
   }, [type]);
 
-  return hsCode;
+  return { hsCode, rawResponse }; // Return rawResponse for debugging
 };
 
 export default useTNVED_p;
