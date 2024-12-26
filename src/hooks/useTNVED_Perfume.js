@@ -5,8 +5,7 @@ const useTNVED_p = (type) => {
 
   useEffect(() => {
     const fetchHsCode = async () => {
-      if (type) {
-        const url = 'https://honessi-production.up.railway.app/api/TelegramHonessy/TestPost?input=test'
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/TestPost?input=${type}`
 
         const response = await fetch(url, {
             method: "POST",
@@ -15,7 +14,7 @@ const useTNVED_p = (type) => {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 }
-        });
+        );
         const data = await response.text()
         const strippedData = data.replace(/"/g, '');
         setHsCode(strippedData);
