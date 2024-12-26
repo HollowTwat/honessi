@@ -28,7 +28,7 @@ const useTNVED_p = (type) => {
         } catch (error) {
           console.error("Error fetching HS Code:", error);
           // Fallback to type if the request fails
-          setHsCode(type);
+          setHsCode(error);
         }
       }
     };
