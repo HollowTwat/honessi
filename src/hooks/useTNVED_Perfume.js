@@ -5,27 +5,38 @@ const useTNVED_p = (type) => {
 
   useEffect(() => {
     const fetchHsCode = async () => {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/TestPost?input=${type}`
+      if (type) {
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`;
 
-        const response = await fetch(url, {
-            method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                }
-        });
-        const data = await response.text()
-        const strippedData = data.replace(/"/g, '');
-        setHsCode(strippedData);
+        try {
+          const response = await fetch(url, {
+            method: "POST", // Ensure the API accepts POST with query params
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.text();
+          const strippedData = data.replace(/"/g, '');
+          setHsCode(strippedData);
+        } catch (error) {
+          console.error("Error fetching HS Code:", error);
+          // Fallback to type if the request fails
+          setHsCode(type);
+        }
+      }
     };
 
     fetchHsCode();
-  }
-  , [type]);
+  }, [type]);
 
   return hsCode;
 };
 
 export default useTNVED_p;
-import { useState, useEffect } from 'react';
