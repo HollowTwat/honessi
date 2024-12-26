@@ -12,7 +12,6 @@ const useTNVED_p = (type) => {
           const response = await fetch(url, {
             method: "POST",
             headers: {
-              "Accept": "*/*",
               "Content-Type": "application/json",
             },
             mode: "cors", // Explicitly specify CORS mode
