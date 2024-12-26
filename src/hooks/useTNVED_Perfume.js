@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 const useTNVED_p = (type) => {
   const [hsCode, setHsCode] = useState(null);
-  const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
 
   useEffect(() => {
     const fetchHsCode = async () => {
@@ -19,14 +18,16 @@ const useTNVED_p = (type) => {
             mode: "cors", // Explicitly specify CORS mode
           });
 
-          setRawResponse(response); // Save raw response for debugging
-
+          // Check if response is not OK
           if (!response.ok) {
             const errorText = await response.text();
-            setHsCode(`Error: ${errorText || "No error message"} (Status: ${response.status})`);
+            setHsCode(
+              `Error: ${errorText || "No error message"} (Status: ${response.status}, URL: ${url})`
+            );
             throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
           }
 
+          // Handle successful response
           const data = await response.text();
           if (!data) {
             setHsCode(`Error: Empty response (Status: ${response.status})`);
@@ -34,12 +35,14 @@ const useTNVED_p = (type) => {
           }
 
           const strippedData = data.replace(/"/g, '');
-          setHsCode(strippedData); // Success case
+          setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
         } catch (error) {
           if (error.message === "Failed to fetch") {
-            setHsCode(`Network error: Check CORS or server configuration. (Fallback: ${rawResponse})`);
+            setHsCode(
+              `Network error: Failed to fetch (Fallback: ${type}, URL: ${url})`
+            );
           } else {
-            setHsCode(`Error: ${error.message}.`);
+            setHsCode(`Error: ${error.message}. (Fallback: ${type})`);
           }
         }
       }
@@ -48,8 +51,7 @@ const useTNVED_p = (type) => {
     fetchHsCode();
   }, [type]);
 
-  // return { hsCode, rawResponse }; // Return rawResponse for debugging
-  return hsCode
+  return hsCode; // Return hsCode as a single value
 };
 
 export default useTNVED_p;
