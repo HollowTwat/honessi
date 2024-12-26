@@ -12,29 +12,26 @@ const useTNVED_p = (type) => {
           const response = await fetch(url, {
             method: "POST",
             headers: {
-              "Accept": "*/*",
-              "Content-Type": "application/json",
+              "Accept": "*/*", // As seen in the Swagger documentation
             },
           });
-        
+
           if (!response.ok) {
-            const errorText = await response.text();
-            console.error(`Server error: ${errorText}`);
+            // Set hsCode with response status when the response is not ok
             setHsCode(`Error: (Status: ${response.status})`);
-            throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
+            throw new Error(`HTTP error! Status: ${response.status}`);
           }
-        
+
           const data = await response.text();
           if (!data) {
             throw new Error("Empty response from server");
           }
-        
           const strippedData = data.replace(/"/g, '');
           setHsCode(strippedData);
         } catch (error) {
           console.error("Error fetching HS Code:", error);
+          // Fallback to type with status 500
           setHsCode(error);
-        }
         }
       }
     };
