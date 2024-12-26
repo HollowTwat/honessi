@@ -18,6 +18,7 @@ const useTNVED_p = (type) => {
 
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
+            setHsCode(response.status);
           }
 
           const data = await response.text();
@@ -26,7 +27,7 @@ const useTNVED_p = (type) => {
         } catch (error) {
           console.error("Error fetching HS Code:", error);
           // Fallback to type if the request fails
-          setHsCode(response.status);
+          setHsCode(error);
         }
       }
     };
