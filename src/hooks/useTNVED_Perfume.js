@@ -28,7 +28,7 @@ const useTNVED_p = (type) => {
         } catch (error) {
           console.error("Error fetching HS Code:", error);
           // Fallback to type with status 500
-          setHsCode(respoonse);
+          setHsCode(response);
         }
       }
     };
