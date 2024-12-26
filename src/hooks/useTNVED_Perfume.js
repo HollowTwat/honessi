@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useTNVED_p = (type) => {
-  // const [hsCode, setHsCode] = useState(null);
+  const [hsCode, setHsCode] = useState(null);
   const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
 
   useEffect(() => {
