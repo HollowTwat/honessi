@@ -37,7 +37,7 @@ const useTNVED_p = (type) => {
           setHsCode(strippedData); // Success case
         } catch (error) {
           if (error.message === "Failed to fetch") {
-            setHsCode(`Network error: Check CORS or server configuration. (Fallback: ${type})`);
+            setHsCode(`Network error: Check CORS or server configuration. (Fallback: ${data})`);
           } else {
             setHsCode(`Error: ${error.message}.`);
           }
