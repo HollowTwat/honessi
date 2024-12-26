@@ -6,7 +6,7 @@ const useTNVED_p = (type) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type) {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/TestPost?input=${type}`;
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`;
 
         try {
           const response = await fetch(url, {
