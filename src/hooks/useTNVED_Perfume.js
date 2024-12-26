@@ -18,7 +18,6 @@ const useTNVED_p = (type) => {
 
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
-            setHsCode(response.status);
           }
 
           const data = await response.text();
