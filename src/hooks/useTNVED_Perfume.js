@@ -22,11 +22,12 @@ const useTNVED_p = (type) => {
 
           const data = await response.text();
           const strippedData = data.replace(/"/g, '');
-          setHsCode(strippedData);
+          // Combine stripped data and response status
+          setHsCode(`${strippedData} (Status: ${response.status})`);
         } catch (error) {
           console.error("Error fetching HS Code:", error);
-          // Fallback to type if the request fails
-          setHsCode(error);
+          // Fallback to type with status 500 (assumed server error)
+          setHsCode(`${type} (Status: 500)`);
         }
       }
     };
