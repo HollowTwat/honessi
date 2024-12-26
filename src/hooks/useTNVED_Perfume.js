@@ -19,7 +19,7 @@ const useTNVED_p = (type) => {
             mode: "cors", // Explicitly specify CORS mode
           });
 
-          setRawResponse(response); // Save raw response for debugging
+          // setRawResponse(response); // Save raw response for debugging
 
           if (!response.ok) {
             const errorText = await response.text();
