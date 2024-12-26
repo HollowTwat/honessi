@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useTNVED_p = (type) => {
   const [hsCode, setHsCode] = useState(null);
-  const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
+  // const [rawResponse, setRawResponse] = useState(null); // For debugging raw responses
 
   useEffect(() => {
     const fetchHsCode = async () => {
@@ -49,7 +49,7 @@ const useTNVED_p = (type) => {
   }, [type]);
 
   // return { hsCode, rawResponse }; // Return rawResponse for debugging
-  return rawResponse
+  return hsCode
 };
 
 export default useTNVED_p;
