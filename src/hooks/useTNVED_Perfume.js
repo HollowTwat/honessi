@@ -14,11 +14,10 @@ const useTNVED_p = (type) => {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 }
-        );
+        });
         const data = await response.text()
         const strippedData = data.replace(/"/g, '');
         setHsCode(strippedData);
-      }
     };
 
     fetchHsCode();
@@ -29,3 +28,4 @@ const useTNVED_p = (type) => {
 };
 
 export default useTNVED_p;
+import { useState, useEffect } from 'react';
