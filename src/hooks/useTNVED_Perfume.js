@@ -6,15 +6,13 @@ const useTNVED_p = (type) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type) {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`;
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/TestPost?input=${type}`;
 
         try {
           const response = await fetch(url, {
-            method: "POST", // Ensure the API accepts POST with query params
-            mode: "cors",
+            method: "POST", // Ensure the method matches the API
             headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json",
+              "Accept": "*/*", // As seen in the Swagger documentation
             },
           });
 
@@ -28,7 +26,7 @@ const useTNVED_p = (type) => {
         } catch (error) {
           console.error("Error fetching HS Code:", error);
           // Fallback to type if the request fails
-          setHsCode(error);
+          setHsCode(`${error}, ${response.status}`);
         }
       }
     };
