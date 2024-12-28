@@ -13,7 +13,7 @@ const useTNVED_p = (type) => {
           const response = await fetch(url, {
             method: "GET",
             headers: {
-              "Connection": "keep-alive",
+              // "Connection": "keep-alive",
               // "Content-Type": "application/json",
               "Accept": "*/*",
             },
