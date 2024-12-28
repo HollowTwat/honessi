@@ -18,22 +18,23 @@ const useTNVED_p = (type) => {
             // mode: "cors",
           });
 
-          if (!response.ok) {
-            const errorText = await response.text();
-            setHsCode(
-              `Error: ${errorText || "No error message"} (Status: ${response.status}, URL: ${url})`
-            );
-            throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
-          }
+          // if (!response.ok) {
+          //   const errorText = await response.text();
+          //   setHsCode(
+          //     `Error: ${errorText || "No error message"} (Status: ${response.status}, URL: ${url})`
+          //   );
+          //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
+          // }
 
-          const data = await response.text();
-          if (!data) {
-            setHsCode(`Error: Empty response (Status: ${response.status})`);
-            throw new Error("Empty response from server");
-          }
+          const data = await response.status;
+          // if (!data) {
+          //   setHsCode(`Error: Empty response (Status: ${response.status})`);
+          //   throw new Error("Empty response from server");
+          // }
 
-          const strippedData = data.replace(/"/g, '');
-          setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
+          // const strippedData = data.replace(/"/g, '');
+          // setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
+          setHsCode(`Success: ${data}`);
         } catch (error) {
           if (error.message === "Failed to fetch") {
             setHsCode(
