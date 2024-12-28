@@ -10,7 +10,7 @@ const useTNVED_p = (type) => {
 
         try {
           const response = await fetch(url, {
-            method: "POST",
+            method: "GET",
             // headers: {
               // "Content-Type": "application/json",
               // "Accept": "*/*",
