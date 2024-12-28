@@ -40,7 +40,7 @@ const useTNVED_p = (type) => {
         } catch (error) {
           if (error.message === "Failed to fetch") {
             setHsCode(
-              `Network error: Failed to fetch (Fallback: ${type}, URL: ${url})`
+              `${error}, URL: ${url})`
             );
           } else {
             setHsCode(`Error: ${error.message}. (Fallback: ${type})`);
