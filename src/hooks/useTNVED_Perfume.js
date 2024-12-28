@@ -28,7 +28,7 @@ const useTNVED_p = (type) => {
           //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
           // }
 
-          const data = await response.status;
+          const data = await response;
           // if (!data) {
           //   setHsCode(`Error: Empty response (Status: ${response.status})`);
           //   throw new Error("Empty response from server");
@@ -40,7 +40,7 @@ const useTNVED_p = (type) => {
         } catch (error) {
           if (error.message === "Failed to fetch") {
             setHsCode(
-              `${error}, URL: ${url})`
+              `${error}, URL: ${url}`
             );
           } else {
             setHsCode(`Error: ${error.message}. (Fallback: ${type})`);
