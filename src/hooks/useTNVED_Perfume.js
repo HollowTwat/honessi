@@ -11,10 +11,11 @@ const useTNVED_p = (type) => {
         try {
           const response = await fetch(url, {
             method: "GET",
-            // headers: {
+            headers: {
+              "Connection": "keep-alive",
               // "Content-Type": "application/json",
-              // "Accept": "*/*",
-            // },
+              "Accept": "*/*",
+            },
             // mode: "cors",
           });
 
