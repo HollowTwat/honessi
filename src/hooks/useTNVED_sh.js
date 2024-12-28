@@ -6,23 +6,36 @@ const useTNVED_s = (type, materials_t, materials_m, materials_b, sex) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type && materials_t && materials_m && materials_b && sex) {
-        // const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type},${materials_t},${materials_m},${materials_b},${sex}`
         const url = `https://quart-test-production-9039.up.railway.app/test?input=${type},${materials_t},${materials_m},${materials_b},${sex}`
         
+        try {
+          const response = await fetch(url, {
+            method: "GET",
+            headers: {
+              "Accept": "*/*",
+            },
+            mode: "cors",
+          });
 
-        // Simulate a delay to mimic an API call
-        const response = await fetch(url, {
-            method: "POST",
-                mode: "cors",
-                // headers: {
-                //     "Content-Type": "application/json",
-                //     "Accept": "application/json",
-                // }
-        });
-        const data = await response.text()
-        const strippedData = data.replace(/"/g, '');
-        setHsCode(strippedData); // Static value for debugging // Static value for debugging
-        setHsCode(123456);
+          if (!response.ok) {
+            const errorText = await response.text();
+            setHsCode(
+              `Error: ${errorText || "No error message"} (Status: ${response.status}, URL: ${url})`
+            );
+            throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
+          }
+
+          const data = await response.text();
+          if (!data) {
+            setHsCode(`Error: Empty response (Status: ${response.status})`);
+            throw new Error("Empty response from server");
+          }
+
+          const strippedData = data.replace(/"/g, '');
+          setHsCode(strippedData);
+        } catch (error) {
+          setHsCode(`${error}, URL: ${url}`);
+        }
       }
     };
 
