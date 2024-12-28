@@ -7,14 +7,11 @@ const useTNVED_p = (type) => {
     const fetchHsCode = async () => {
       if (type) {
         const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`;
-        // const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=Парфюмерная вода`
 
         try {
           const response = await fetch(url, {
             method: "GET",
             headers: {
-              // "Connection": "keep-alive",
-              // "Content-Type": "application/json",
               "Accept": "*/*",
             },
             mode: "cors",
@@ -35,12 +32,9 @@ const useTNVED_p = (type) => {
           }
 
           const strippedData = data.replace(/"/g, '');
-          setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
-          setHsCode(`Success: ${data}`);
+          setHsCode(strippedData);
         } catch (error) {
-          setHsCode(
-            `${error}, URL: ${url}`
-          );
+          setHsCode(`${error}, URL: ${url}`);
         }
       }
     };
@@ -48,7 +42,7 @@ const useTNVED_p = (type) => {
     fetchHsCode();
   }, [type]);
 
-  return hsCode; // Return hsCode as a single value
+  return hsCode;
 };
 
 export default useTNVED_p;
