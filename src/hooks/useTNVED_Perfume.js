@@ -6,7 +6,8 @@ const useTNVED_p = (type) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type) {
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`;
+        // const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=\"${type}\"`;
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=Парфюмерная вода`
 
         try {
           const response = await fetch(url, {
