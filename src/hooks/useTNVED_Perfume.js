@@ -17,7 +17,7 @@ const useTNVED_p = (type) => {
               // "Content-Type": "application/json",
               "Accept": "*/*",
             },
-            // mode: "cors",
+            mode: "cors",
           });
 
           // if (!response.ok) {
@@ -28,7 +28,7 @@ const useTNVED_p = (type) => {
           //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
           // }
 
-          const data = await response;
+          const data = response;
           // if (!data) {
           //   setHsCode(`Error: Empty response (Status: ${response.status})`);
           //   throw new Error("Empty response from server");
@@ -38,13 +38,10 @@ const useTNVED_p = (type) => {
           // setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
           setHsCode(`Success: ${data}`);
         } catch (error) {
-          if (error.message === "Failed to fetch") {
-            setHsCode(
-              `${error}, URL: ${url}`
-            );
-          } else {
-            setHsCode(`Error: ${error.message}. (Fallback: ${type})`);
-          }
+          const json = JSON.stringify(error)
+          setHsCode(
+            `${json}, URL: ${url}`
+          );
         }
       }
     };
