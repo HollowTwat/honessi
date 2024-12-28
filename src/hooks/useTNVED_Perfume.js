@@ -15,7 +15,7 @@ const useTNVED_p = (type) => {
               // "Content-Type": "application/json",
               "Accept": "*/*",
             },
-            mode: "cors",
+            // mode: "cors",
           });
 
           if (!response.ok) {
