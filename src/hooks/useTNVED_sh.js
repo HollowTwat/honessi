@@ -14,10 +14,10 @@ const useTNVED_s = (type, materials_t, materials_m, materials_b, sex) => {
         const response = await fetch(url, {
             method: "POST",
                 mode: "cors",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                }
+                // headers: {
+                //     "Content-Type": "application/json",
+                //     "Accept": "application/json",
+                // }
         });
         const data = await response.text()
         const strippedData = data.replace(/"/g, '');
