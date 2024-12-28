@@ -6,8 +6,8 @@ const useTNVED_p = (type) => {
   useEffect(() => {
     const fetchHsCode = async () => {
       if (type) {
-        // const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=\"${type}\"`;
-        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=Парфюмерная вода`
+        const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=${type}`;
+        // const url = `https://honessi-production.up.railway.app/api/TelegramHonessy/GetTnved?input=Парфюмерная вода`
 
         try {
           const response = await fetch(url, {
@@ -20,27 +20,26 @@ const useTNVED_p = (type) => {
             mode: "cors",
           });
 
-          // if (!response.ok) {
-          //   const errorText = await response.text();
-          //   setHsCode(
-          //     `Error: ${errorText || "No error message"} (Status: ${response.status}, URL: ${url})`
-          //   );
-          //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
-          // }
+          if (!response.ok) {
+            const errorText = await response.text();
+            setHsCode(
+              `Error: ${errorText || "No error message"} (Status: ${response.status}, URL: ${url})`
+            );
+            throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
+          }
 
-          const data = JSON.stringify(response);
-          // if (!data) {
-          //   setHsCode(`Error: Empty response (Status: ${response.status})`);
-          //   throw new Error("Empty response from server");
-          // }
+          const data = await response.text();
+          if (!data) {
+            setHsCode(`Error: Empty response (Status: ${response.status})`);
+            throw new Error("Empty response from server");
+          }
 
-          // const strippedData = data.replace(/"/g, '');
-          // setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
+          const strippedData = data.replace(/"/g, '');
+          setHsCode(`Success: ${strippedData} (Status: ${response.status})`);
           setHsCode(`Success: ${data}`);
         } catch (error) {
-          const json = JSON.stringify(error)
           setHsCode(
-            `${json}, URL: ${url}`
+            `${error}, URL: ${url}`
           );
         }
       }
