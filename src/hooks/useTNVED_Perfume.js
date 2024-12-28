@@ -28,7 +28,7 @@ const useTNVED_p = (type) => {
           //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
           // }
 
-          const data = response;
+          const data = JSON.stringify(response);
           // if (!data) {
           //   setHsCode(`Error: Empty response (Status: ${response.status})`);
           //   throw new Error("Empty response from server");
